@@ -1,0 +1,11 @@
+action (SecondExpressBus) {
+  type(Search)
+  description (on-click 넘기면 받아오는 고속버스 세부 정보)
+  collect {
+    input (ExpressBus) {
+      type (ExpressBus)
+      min (Optional) max (Many)
+    }
+  }
+  output (ExpressBus)
+}

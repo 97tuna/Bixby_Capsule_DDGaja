@@ -1,0 +1,4 @@
+dialog (Progress) {
+  match: FinalAirplane  (this)
+  template("오늘의 항공 시간표를 탐색중입니다.")
+}

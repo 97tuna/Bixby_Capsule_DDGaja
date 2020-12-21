@@ -1,0 +1,38 @@
+result-view {
+	match {
+		NearWayInfo (result) {
+			min (Required) max (One)
+		}
+	}
+	message {
+		if (exists(result.DepartCity)) {
+			template-macro (NearWayInfo_Result) {
+				param (NearWayInfo) {
+					expression (result)
+				}
+			}
+		}
+		else-if (result.traincount == 0 && result.expressbuscount == 0 && result.airplanecount == 0 && result.intercitybuscount == 0) {
+			template-macro (NearWayInfo_NoResult) {
+				param (NearWayInfo) {
+					expression (result)
+				}
+			}
+		}
+		else {
+			template-macro (NearWayInfo_NoResult) {
+				param (NearWayInfo) {
+					expression (result)
+				}
+			}
+		}
+	}
+
+	render {
+		layout-macro (NearWayInfo-summary) {
+			param (NearWayInfo) {
+				expression(result)
+			}
+		}
+	}
+}

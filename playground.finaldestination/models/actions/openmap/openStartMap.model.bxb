@@ -1,0 +1,11 @@
+action (openStartMap) {
+  description (StartMap app-launch를 위한 액션)
+  type(Constructor)
+  collect {
+    input (startmap) {
+      type (startmap)
+      min (Optional) max (One)
+    }
+  }
+  output (mapURL)
+}

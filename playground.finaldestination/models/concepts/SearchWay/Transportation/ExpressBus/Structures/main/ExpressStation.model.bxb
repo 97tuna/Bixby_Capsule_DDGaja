@@ -1,0 +1,51 @@
+structure (ExpressStation) {
+  description (고속버스 세부 정보)
+  property (startTerminal) {
+    type (startTerminal)
+    min (Optional) max (One)
+  }
+  property (destTerminal) {
+    type (destTerminal)
+    min (Optional) max (One)
+  }
+  property (wasteTime) {
+    type (wasteTime)
+    min (Optional) max (One)
+  }
+  property (normalFare) {
+    type (normalFare)
+    min (Optional) max (One)
+  }
+  property (specialFare) {
+    type (SpecialFare)// 이거 S 가 맞음 s라고 하면 안됨
+    min (Optional) max (One)
+  }
+  property (nightFare) {
+    type (nightFare)
+    min (Optional) max (One)
+  }
+  property (nightSpecialFare) {
+    type (nightSpecialFare)
+    min (Optional) max (One)
+  }
+  property (schedule) {
+    type (schedule)
+    min (Optional) max (Many)
+  }
+  property (nightSchedule) {
+    type (nightSchedule)
+    min (Optional) max (Many)
+  }
+  property (ExpressBusClass) {
+    type (ExpressBusClass)
+    min (Optional) max (Many)
+  }
+  property (PremiumFare) {
+    type (PremiumFare)
+    min (Optional) max (Many)
+  }
+  property (nightPremiumFare) {
+    type (nightPremiumFare)
+    min (Optional) max (Many)
+  }
+}

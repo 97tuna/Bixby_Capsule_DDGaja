@@ -1,0 +1,10 @@
+train (t-xm5n9zw3kmuf0h8ntyxzje2ig) {
+  utterance ("[g:NearWayInfo] 여기에서 (대구)[v:ArrivalCity]알려줘")
+  plan (Y2BmUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5en6piUXhiZWeeWn5DNr4FAYDFSZnAJWCdCRV4jfVsagosywxxzmzpJKBiYERiBmAJCMDCDBBMAA=)
+  last-modified (1608563287281)
+}
+train (t-xpuiuhs5zfxx7jp4n47z6ibkq) {
+  utterance ("[g:CityWayInfo] (서울)[v:DepartCity]에서 (수원)[v:ArrivalCity]")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEgPhgUQA=)
+  last-modified (1608563287222)
+}

@@ -1,0 +1,22 @@
+result-view {
+	match {
+		FinalIntercityBus (result) {
+			min (Required) max (One)
+		}
+	}
+	
+	message {
+		if (exists(result.IntercityStation.schedule)) {
+			template ("#{value(result.IntercityStation.startTerminal)}에서 #{value(result.IntercityStation.destTerminal)}까지 일정표를 찾았습니다.")		}
+		else-if (empty(result.IntercityStation.schedule)) {
+			template ("현재 시간 이후에 운행하는 버스가 없습니다")
+		}
+	}
+	render {
+		layout-macro (CityWayInfo-IntercityDetail) {
+			param (FinalIntercityBus) {
+				expression(result)
+			}
+		}
+	}
+}

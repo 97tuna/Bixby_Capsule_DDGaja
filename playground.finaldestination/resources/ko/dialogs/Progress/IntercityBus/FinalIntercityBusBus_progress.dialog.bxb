@@ -1,0 +1,4 @@
+dialog (Progress) {
+  match: FinalIntercityBus (this)
+  template("오늘의 시외 버스 시간표를 탐색중입니다.")
+}

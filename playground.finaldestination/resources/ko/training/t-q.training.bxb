@@ -1,0 +1,15 @@
+train (t-qc1pg6jx12apfai7xbwwb4m35) {
+  utterance ("[g:CityWayInfo] (서울)[v:DepartCity]에서 (부산)[v:ArrivalCity]까지 알려달랑께")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEgPhgUQA=)
+  last-modified (1608563285577)
+}
+train (t-qtyyzuwegtbwft62a12w1a1r4) {
+  utterance ("[g:CityWayInfo] (서울)[v:DepartCity]부터 (부산)[v:ArrivalCity] 어캐가노")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEgPhgUQA=)
+  last-modified (1608563285335)
+}
+train (t-qucb4y2s6r9ph6r09zy0m7w7p) {
+  utterance ("[g:SearchWayNearby] (마산)[v:ArrivalCity] 찾아줘")
+  plan (Y2BmUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5en6piUXhiZWeeWn5DNr4FAYDFSZnAJWCdCRV4jfVsagosywxxzmzpJKBiYERiBmAJCMDCED5AA==)
+  last-modified (1608563285396)
+}

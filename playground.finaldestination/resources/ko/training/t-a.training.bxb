@@ -1,0 +1,5 @@
+train (t-al50zeheciglyitb7uvfy8g9j) {
+  utterance ("[g:CityWayInfo] (서울)[v:DepartCity]에서 (수원)[v:ArrivalCity] 가게 해줘")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEgPhgUQA=)
+  last-modified (1608563283256)
+}

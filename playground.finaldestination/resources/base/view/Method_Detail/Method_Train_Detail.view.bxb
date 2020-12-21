@@ -1,0 +1,22 @@
+result-view {
+	match {
+		FinalTrain (result) {
+			min (Required) max (One)
+		}
+	}
+	message {
+		if (exists(result.TrainStation)) {
+		template ("#{value(result.startStationName)}에서 #{value(result.endStationName)}까지 일정표를 찾았습니다.")
+		}
+		else-if (empty(result.TrainStation)) {
+			template ("현재 시간 이후에 운행하는 기차가 없습니다")
+		}
+	}
+	render {
+		layout-macro (CityWayInfo-TrainDetail) {
+			param (FinalTrain) {
+				expression(result)
+			}
+		}
+	}
+}

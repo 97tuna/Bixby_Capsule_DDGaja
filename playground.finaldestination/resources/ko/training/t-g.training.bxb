@@ -1,0 +1,15 @@
+train (t-gry9t6546o1dgn4szz4t7537z) {
+  utterance ("[g:CityWayInfo] (양천)[v:DepartCity]에서 (대구)[v:ArrivalCity]까지 얼마나 걸려")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEgPhgUQA=)
+  last-modified (1608563283712)
+}
+train (t-gzkmksgtgj20uge7mb95ojjry) {
+  utterance ("[g:CityWayInfo] (서울)[v:DepartCity]에서 (부산)[v:ArrivalCity]까지 알려줄래")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEgPhgUQA=)
+  last-modified (1608563283758)
+}
+train (t-gztm2j1h9r8i9yv6gtue8lszq) {
+  utterance ("[g:CityWayInfo] (서울)[v:DepartCity]부터 (부산)[v:ArrivalCity]까지 어떻게 가노")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEgPhgUQA=)
+  last-modified (1608563283802)
+}

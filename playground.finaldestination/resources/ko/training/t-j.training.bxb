@@ -1,0 +1,5 @@
+train (t-j0o6vpkhiz21a91bipe5sbdh7) {
+  utterance ("[g:NearWayInfo] (청주)[v:ArrivalCity] 어떻게 가")
+  plan (Y2BmUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5en6piUXhiZWeeWn5DNr4FAYDFSZnAJWCdCRV4jfVsagosywxxzmzpJKBiYERiBmAJCMDCDBBMAA=)
+  last-modified (1608563284109)
+}

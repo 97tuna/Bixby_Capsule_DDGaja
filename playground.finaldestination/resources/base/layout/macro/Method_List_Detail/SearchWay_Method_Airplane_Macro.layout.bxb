@@ -1,0 +1,298 @@
+layout-macro-def (CityWayInfo-AirplaneDetail) {//시팔 다시만들것
+	params {
+		param (FinalAirplane) {
+			type (FinalAirplane)
+			min (Required) //max (One)
+		}
+	}
+	content {
+		section {
+			content {
+split-input-cell {
+	left {
+		input-cell {
+			label {
+				template ("카카오지도에서")
+			}
+			value {
+				template ("출발지까지 길찾기")
+			}
+					on-click {
+						intent {
+							goal: openStartMap
+							value: $expr(FinalAirplane.startmap)
+						}
+					}
+		}
+	}
+	right {
+		input-cell {
+			label {
+				template ("카카오지도에서")
+			}
+			value {
+				template ("도착지에서 길찾기")
+			}
+					on-click {
+						intent {
+							goal: openEndMap
+							value: $expr(FinalAirplane.endmap)
+						}
+					}
+		}
+	}
+}
+				for-each (FinalAirplane) {
+					as () {
+						index-var (j)
+						for-each (FinalAirplane[j].AirplaneStation) {
+							as () {
+								index-var (i)
+								compound-card {
+									
+									content {
+										hbox {//기차 표시
+											content {
+												vbox {
+													halign (Start)
+													valign (Bottom)
+													//grow (2)
+													content {
+														text {
+															value ("#{value(FinalAirplane[j].AirplaneStation[i].airline)}")
+															style (Title_XS)
+														}
+													}
+												}
+												if (FinalAirplane[j].AirplaneStation[i].airline == '아시아나항공') {
+													vbox {
+														grow (5)
+														halign (Start)
+														valign (Bottom)
+														content {
+															single-line {
+																image (/images/airline/asiana.png)
+															}
+														}
+													}
+												}
+												else-if (FinalAirplane[j].AirplaneStation[i].airline == '대한항공') {
+													vbox {
+														grow (5)
+														valign (Bottom)
+														halign (Start)
+														content {
+															single-line {
+																image {
+																	url (/images/airline/koreanair.png)
+																}
+															}
+														}
+													}
+												}
+												else-if (FinalAirplane[j].AirplaneStation[i].airline == '이스타항공') {
+													vbox {
+														grow (5)
+														valign (Bottom)
+														halign (Start)
+														content {
+															single-line {
+																image {
+																	url (/images/airline/eastar.png)
+																}
+															}
+														}
+													}
+												}
+												else-if (FinalAirplane[j].AirplaneStation[i].airline == '에어부산') {
+													vbox {
+														grow (5)
+														valign (Bottom)
+														halign (Start)
+														content {
+															single-line {
+																image {
+																	url (/images/airline/airbusan-1.png)
+																	//background-color (White)
+																}
+															}
+														}
+													}
+												}
+												else-if (FinalAirplane[j].AirplaneStation[i].airline == '진에어') {
+													vbox {
+														grow (5)
+														valign (Bottom)
+														halign (Start)
+														content {
+															single-line {
+																image {
+																	url (/images/airline/jinair.png)
+																}
+															}
+														}
+													}
+												}
+												else-if (FinalAirplane[j].AirplaneStation[i].airline == '제주항공') {
+													vbox {
+														grow (5)
+														valign (Bottom)
+														halign (Start)
+														content {
+															single-line {
+																image {
+																	url (/images/airline/jejuair.png)
+																}
+															}
+														}
+													}
+												}
+												else-if (FinalAirplane[j].AirplaneStation[i].airline == '에어서울') {
+													vbox {
+														grow (5)
+														valign (Bottom)
+														halign (Start)
+														content {
+															single-line {
+																image {
+																	url (/images/airline/airseoul.png)
+																}
+															}
+														}
+													}
+												}
+												else-if (FinalAirplane[j].AirplaneStation[i].airline == '티웨이항공') {
+													vbox {
+														grow (5)
+														valign (Bottom)
+														halign (Start)
+														content {
+															single-line {
+																image {
+																	url (/images/airline/tway.png)
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+										hbox {//출발시간이랑 도착시간 표시
+											content {
+												vbox {
+													halign (Center)
+													valign (Bottom)
+													grow(1)
+													content {
+														text {
+															value ("#{value(FinalAirplane[j].startStationName)}")
+															style (Detail_M)
+															//style (Detail_L)
+														}
+													}
+												}
+												vbox {
+													grow(3)
+													halign (Center)
+													valign (Bottom)
+													content {
+														single-line {
+															image (/images/Airplane.png) {style (Detail_L)}
+														}
+													}
+												}
+												vbox {
+													grow(1)
+													halign (Center)
+													valign (Bottom)
+													content {
+														text ("#{value(FinalAirplane[j].endStationName)}") {
+															style (Detail_M)
+														}
+													}
+												}
+											}
+										}
+										hbox {//출발시간이랑 도착시간 표시
+											content {
+												vbox {
+													grow(1)
+													halign (Center)
+													valign (Top)
+													content {
+														text {
+															value ("#{value(FinalAirplane[j].AirplaneStation[i].departureTime)}")//출발시간 넣기
+															style (Title_XS)
+														}
+													}
+												}
+												vbox {
+													grow(3)
+													halign (Center)
+													valign (Top)
+													content {
+														text {
+															value ("#{value(FinalAirplane[j].AirplaneStation[i].runDay)} 운행")
+															style (Detail_L_Soft)
+															
+														}
+													}
+												}
+												vbox {
+													grow(1)
+													halign (Center)
+													valign (Top)
+													content {
+														text {
+															value ("#{value(FinalAirplane[j].AirplaneStation[i].arrivalTime)}") //도착시간 넣기
+															style (Title_XS)
+														}
+													}
+												}
+											}
+										}
+										// divider
+										// hbox {//성인인지랑 요금 표시
+										// 	content {
+										// 		vbox {
+										// 			grow(4)
+										// 			halign (Start)
+										// 			content {
+										// 				text {
+										// 					value ("일반석, 성인")
+										// 					style (Title_XS)
+										// 				}
+										// 			}
+										// 		}
+										// 		vbox {
+										// 			grow(2)
+										// 			halign (End)
+										// 			valign (Bottom)
+										// 			content {
+										// 				text {
+										// 					value ("총요금")
+										// 					style (Detail_L_Soft)
+										// 				}
+										// 			}
+										// 		}
+										// 		vbox {
+										// 			grow(3)
+										// 			halign (End)
+										// 			content {
+										// 				text {
+										// 					value ("항공사참조")
+										// 				}
+										// 			}
+										// 		}
+										// 	}
+										// }
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

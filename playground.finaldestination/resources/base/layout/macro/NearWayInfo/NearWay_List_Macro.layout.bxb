@@ -1,0 +1,873 @@
+layout-macro-def (NearWayInfo-summary) {
+	params {
+		param (NearWayInfo) {
+			type (NearWayInfo)
+			min (Required) //max (One)
+		}
+	}
+	content{
+		section{
+			content{
+				if (NearWayInfo.traincount > 0 && exists(NearWayInfo.Train[0].TrainStation[0])) {
+					compound-card {
+						//----------------------------------------------기차----------------------------------------------
+						//-----------------------------------------------------------------------------------------------
+						on-click {
+							intent {
+								goal: SecondTrain
+								value: $expr(NearWayInfo.Train)
+							}
+						}
+						content {
+							hbox {//기차 표시
+								content {
+									vbox {
+										valign (Bottom)
+										//grow(1)
+										content {
+											single-line {
+												text {
+													value ("기차")
+													style (Title_XS)
+												}
+											}
+										}
+									}
+									vbox {
+										grow(4)
+										halign (Start)
+										valign (Bottom)
+										content {
+											text {
+												value ("#{value(NearWayInfo.Train[0].TrainStation[0].trainClass)}")
+												style (Detail_M_Soft)
+											}
+										}
+									}
+								}
+							}divider
+							hbox {//출발시간이랑 도착시간 표시
+								content {
+									vbox {
+										halign (Center)
+										valign (Bottom)
+										grow(2)
+										content {
+											text {
+												value ("#{value(NearWayInfo.Train[0].startStationName)}")
+												style (Detail_M)
+											}
+										}
+									}
+									vbox {
+										grow(5)
+										halign (Center)
+										valign (Bottom)
+										content {
+											single-line {
+												image (/images/Train.png) {
+													style (Detail_L)
+												} //이미지도 사이즈 조절 가능
+											}
+										}
+									}
+									vbox {
+										grow(2)
+										halign (Center)
+										valign (Bottom)
+										content {
+											text ("#{value(NearWayInfo.Train[0].endStationName)}") {
+												style (Detail_M)
+											}
+										}
+									}
+								}
+							}
+							hbox {//출발시간이랑 도착시간 표시
+								content {
+									vbox {
+										grow(2)
+										halign (Center)
+										valign (Top)
+										content {
+											text {
+												value ("#{value(NearWayInfo.Train[0].TrainStation[0].departureTime)}")
+												style (Title_S)
+											}
+										}
+									}
+									vbox {
+										grow(5)
+										halign (Center)
+										valign (Top)
+										content {
+											text {
+												value ("편도 #{value(NearWayInfo.Train[0].TrainStation[0].wasteTime)} 소요")
+												style (Detail_L_Soft)
+											}
+										}
+									}
+									vbox {
+										grow(2)
+										halign (Center)
+										valign (Top)
+										content {
+											text {
+												value ("#{value(NearWayInfo.Train[0].TrainStation[0].arrivalTime)}")
+												style (Title_S)
+											}
+										}
+									}
+								}
+							}
+							divider
+							hbox {//성인인지랑 요금 표시
+								content {
+									vbox {
+										grow(4)
+										halign (Start)
+										valign (Bottom)
+										content {
+											text {
+												value ("일반석, 성인")
+												style (Detail_L)
+											}
+										}
+									}
+									vbox {
+										grow(3)
+										halign (End)
+										valign (Bottom)
+										content {
+											text {
+												value ("총요금")
+												style (Detail_M_Soft)
+											}
+										}
+									}
+									vbox {
+										//grow(5)
+										halign (End)
+										content {
+											if (NearWayInfo.Train[0].TrainStation[0].runDay == '토일' || NearWayInfo.Train[0].TrainStation[0].runDay == '토' || NearWayInfo.Train[0].TrainStation[0].runDay == '일') {
+												text {
+													value ("#{value(NearWayInfo.Train[0].TrainStation[0].generalFare.holiday)}원")
+													style (Detail_L)
+												}
+											}
+											if (NearWayInfo.Train[0].TrainStation[0].runDay == '금토일' || NearWayInfo.Train[0].TrainStation[0].runDay == '금토' || NearWayInfo.Train[0].TrainStation[0].runDay == '금일' || NearWayInfo.Train[0].TrainStation[0].runDay == '토일월') {
+												text {
+													value ("#{value(NearWayInfo.Train[0].TrainStation[0].generalFare.weekend)}원")
+													style (Detail_L)
+												}
+											}
+											else {
+												text {
+													value ("#{value(NearWayInfo.Train[0].TrainStation[0].generalFare.weekday)}원")
+													style (Detail_L)
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				else-if (NearWayInfo.traincount == 0) {
+					compound-card {
+						content {
+							hbox {
+								content {
+									vbox {
+										valign (Bottom)
+										content {
+											single-line {
+												text {
+													value ("기차")
+													style (Title_XS)
+												}
+											}
+										}
+									}
+									vbox {
+										grow (4)
+										valign (Bottom)
+										halign (Start)
+										content {
+											text {
+												value ("기차로 가는 경로가 없습니다")
+												style (Detail_M_Soft)
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				else-if (empty(NearWayInfo.Train[0].TrainStation[0]) && NearWayInfo.traincount > 0) {
+					compound-card {
+						content {
+							hbox {
+								content {
+									vbox {
+										valign (Bottom)
+										content {
+											single-line {
+												text {
+													value ("기차")
+													style (Title_XS)
+												}
+											}
+										}
+									}
+									vbox {
+										grow (4)
+										valign (Bottom)
+										halign (Start)
+										content {
+											text {
+												value ("현재시간 이후로 기차가 운행하지 않습니다")
+												style (Detail_M_Soft)
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				//----------------------------------------------시외버스----------------------------------------------
+				//--------------------------------------------------------------------------------------------------
+				if (NearWayInfo.intercitybuscount > 0 && exists(NearWayInfo.IntercityBus[0].IntercityStation[0].schedule[0])) {
+					compound-card {
+						on-click {
+							intent {
+								goal: SecondIntercityBus
+								value: $expr(NearWayInfo.IntercityBus)
+							}
+						}
+						content {
+							hbox {//기차 표시
+								content {
+									vbox {
+										valign (Bottom)
+										content {
+											single-line {
+												text {
+													value ("시외버스")
+													style (Title_XS)
+												}
+											}
+										}
+									}
+									vbox {
+										grow (4)
+										valign (Bottom)
+										halign (Start)
+										content {
+											text {
+												value ("배차시간 #{value(NearWayInfo.IntercityBus[0].IntercityStation[0].interval)} (일/간격)")
+												style (Detail_M_Soft)
+											}
+										}
+									}
+								}
+							}divider
+							hbox {//출발시간이랑 도착시간 표시
+								content {
+									vbox {
+										halign (Center)
+										valign (Bottom)
+										grow(2)
+										content {
+											text {
+												value ("#{value(NearWayInfo.IntercityBus[0].IntercityStation[0].startTerminal)}")
+												style (Detail_M)
+											}
+										}
+									}
+									vbox {
+										grow(5)
+										halign (Center)
+										valign (Bottom)
+										content {
+											single-line {
+												image (/images/Bus.png) { style (Detail_L) }
+											}
+										}
+									}
+									vbox {
+										grow(2)
+										halign (Center)
+										valign (Bottom)
+										content {
+											text ("#{value(NearWayInfo.IntercityBus[0].IntercityStation[0].destTerminal)}") {
+												style (Detail_M)
+											}
+										}
+									}
+								}
+							}
+							hbox {//출발시간이랑 도착시간 표시
+								content {
+									vbox {
+										grow(2)
+										halign (Center)
+										valign (Top)
+										content {
+											text {
+												value ("#{value(NearWayInfo.IntercityBus[0].IntercityStation[0].schedule[0].time)}")//출발시간 넣기
+												style (Title_S)
+											}
+										}
+									}
+									vbox {
+										grow(5)
+										halign (Center)
+										valign (Top)
+										content {
+											text {
+												value ("편도 #{value(NearWayInfo.IntercityBus[0].IntercityStation[0].wasteTime)} 소요")
+												style (Detail_L_Soft)
+												
+											}
+										}
+									}
+									vbox {
+										grow(2)
+										halign (Center)
+										valign (Top)
+										content {
+											text {
+												value ("도착") //도착시간 넣기
+												style (Title_S)
+											}
+										}
+									}
+								}
+							}
+							divider
+							hbox {//성인인지랑 요금 표시
+								content {
+									vbox {
+										grow(4)
+										halign (Start)
+										content {
+											text {
+												value ("성인")
+												style (Detail_L)
+											}
+										}
+									}
+									vbox {
+										grow(3)
+										halign (End)
+										valign (Bottom)
+										content {
+											text {
+												value ("총요금")
+												style (Detail_M_Soft)
+											}
+										}
+									}
+									vbox {
+										//grow(2)
+										halign (End)
+										content {
+											text {
+												value ("#{value(NearWayInfo.IntercityBus[0].IntercityStation[0].normalFare)}원")
+												style (Detail_L)
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				else-if (NearWayInfo.intercitybuscount == 0) {
+					compound-card {
+						content {
+							hbox {
+								content {
+									vbox {
+										valign (Bottom)
+										content {
+											single-line {
+												text {
+													value ("시외버스")
+													style (Title_XS)
+												}
+											}
+										}
+									}
+									vbox {
+										grow (4)
+										valign (Bottom)
+										halign (Start)
+										content {
+											text {
+												value ("시외버스로 가는 경로가 없습니다")
+												style (Detail_M_Soft)
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				else-if (NearWayInfo.intercitybuscount > 0 && empty(NearWayInfo.IntercityBus[0].IntercityStation[0].schedule[0])) {
+					compound-card {
+						content {
+							hbox {
+								content {
+									vbox {
+										valign (Bottom)
+										content {
+											single-line {
+												text {
+													value ("시외버스")
+													style (Title_XS)
+												}
+											}
+										}
+									}
+									vbox {
+										grow (4)
+										valign (Bottom)
+										halign (Start)
+										content {
+											text {
+												value ("현재시간 이후로 시외버스가 운행하지 않습니다")
+												style (Detail_M_Soft)
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				//----------------------------------------------고속버스----------------------------------------------
+				//--------------------------------------------------------------------------------------------------
+				if (NearWayInfo.expressbuscount > 0 && exists(NearWayInfo.ExpressBus[0].ExpressStation[0].schedule)) {
+					compound-card {
+						on-click {
+							intent {
+								goal: SecondExpressBus
+								value: $expr(NearWayInfo.ExpressBus)
+							}
+						}
+						content {
+							hbox {//기차 표시
+								content {
+									vbox {
+										valign (Bottom)
+										content {
+											single-line {
+												text {
+													value ("고속버스")
+													style (Title_XS)
+												}
+											}
+										}
+									}
+									vbox {
+										grow (4)
+										valign (Bottom)
+										halign (Start)
+										content {
+											text {
+												value ("#{value(NearWayInfo.ExpressBus[0].ExpressStation[0].schedule[0].type)}")
+												style (Detail_M_Soft)
+											}
+										}
+									}
+								}
+							}divider
+							hbox {//출발시간이랑 도착시간 표시
+								content {
+									vbox {
+										halign (Center)
+										valign (Bottom)
+										grow(2)
+										content {
+											text {
+												value ("#{value(NearWayInfo.ExpressBus[0].ExpressStation[0].startTerminal)}")
+												style (Detail_M)
+											}
+										}
+									}
+									vbox {
+										grow(5)
+										halign (Center)
+										valign (Bottom)
+										content {
+											single-line {
+												image (/images/Bus.png) {style (Detail_L)}
+											}
+										}
+									}
+									vbox {
+										grow(2)
+										halign (Center)
+										valign (Bottom)
+										content {
+											text ("#{value(NearWayInfo.ExpressBus[0].ExpressStation[0].destTerminal)}") {
+												style (Detail_M)
+											}
+										}
+									}
+								}
+							}
+							hbox {//출발시간이랑 도착시간 표시
+								content {
+									vbox {
+										grow(2)
+										halign (Center)
+										valign (Top)
+										content {
+											text {
+												value ("#{value(NearWayInfo.ExpressBus[0].ExpressStation[0].schedule[0].time)}")
+												style (Title_S)
+											}
+										}
+									}
+									vbox {
+										grow(5)
+										halign (Center)
+										valign (Top)
+										content {
+											text {
+												value ("편도 #{value(NearWayInfo.ExpressBus[0].ExpressStation[0].wasteTime)} 소요")
+												style (Detail_L_Soft)
+												
+											}
+										}
+									}
+									vbox {
+										grow(2)
+										halign (Center)
+										valign (Top)
+										content {
+											text {
+												value ("도착") //도착시간 넣기
+												style (Title_S)
+											}
+										}
+									}
+								}
+							}
+							divider
+							hbox {//성인인지랑 요금 표시
+								content {
+									vbox {
+										grow(4)
+										halign (Start)
+										content {
+											text {
+												value ("성인")
+												style (Detail_L)
+											}
+										}
+									}
+									vbox {
+										grow(3)
+										halign (End)
+										valign (Bottom)
+										content {
+											text {
+												value ("총요금")
+												style (Detail_M_Soft)
+											}
+										}
+									}
+									vbox {
+									//grow(2)
+										halign (End)
+										content {
+											if (NearWayInfo.ExpressBus[0].ExpressStation[0].normalFare != 0) {
+												text {
+													value ("#{value(NearWayInfo.ExpressBus[0].ExpressStation[0].normalFare)}원")
+													style (Detail_L)
+												}
+											}
+											else-if (NearWayInfo.ExpressBus[0].ExpressStation[0].specialFare != 0) {
+												text {
+													value ("#{value(NearWayInfo.ExpressBus[0].ExpressStation[0].specialFare)}원")
+													style (Detail_L)
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				else-if (NearWayInfo.expressbuscount == 0) {
+					compound-card {
+						content {
+							hbox {
+								content {
+									vbox {
+										valign (Bottom)
+										content {
+											single-line {
+												text {
+													value ("고속버스")
+													style (Title_XS)
+												}
+											}
+										}
+									}
+									vbox {
+										grow (4)
+										valign (Bottom)
+										halign (Start)
+										content {
+											text {
+												value ("고속버스로 가는 경로가 없습니다")
+												style (Detail_M_Soft)
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				else-if (NearWayInfo.expressbuscount > 0 && empty(NearWayInfo.ExpressBus[0].ExpressStation[0].schedule[0])) {
+					compound-card {
+						content {
+							hbox {
+								content {
+									vbox {
+										valign (Bottom)
+										content {
+											single-line {
+												text {
+													value ("고속버스")
+													style (Title_XS)
+												}
+											}
+										}
+									}
+									vbox {
+										grow (4)
+										valign (Bottom)
+										halign (Start)
+										content {
+											text {
+												value ("현재시간 이후로 고속버스가 운행하지 않습니다")
+												style (Detail_M_Soft)
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				//----------------------------------------------항공----------------------------------------------
+				//-----------------------------------------------------------------------------------------------
+				if (NearWayInfo.airplanecount > 0 && exists(NearWayInfo.Airplane[0].AirplaneStation[0])) {
+					compound-card {
+						on-click {
+							intent {
+								goal: SecondAirplane
+								value: $expr(NearWayInfo.Airplane)
+							}
+						}
+						content {
+							hbox {//기차 표시
+								content {
+									vbox {
+										valign (Bottom)
+										content {
+											single-line {
+												text {
+													value ("항공편")
+													style (Title_XS)
+												}
+											}
+										}
+									}
+									vbox {
+										grow (4)
+										valign (Bottom)
+										halign (Start)
+										content {
+											text {
+												value ("#{value(NearWayInfo.Airplane[0].AirplaneStation[0].airline)}")
+												style (Detail_M_Soft)
+											}
+										}
+									}
+								}
+							}divider
+							hbox {//출발시간이랑 도착시간 표시
+								content {
+									vbox {
+										halign (Center)
+										valign (Bottom)
+										grow(2)
+										content {
+											text {
+												value ("#{value(NearWayInfo.Airplane[0].startStationName)}")
+												style (Detail_M)
+												//style (Detail_L)
+											}
+										}
+									}
+									vbox {
+										grow(5)
+										halign (Center)
+										valign (Bottom)
+										content {
+											single-line {
+												image (/images/Airplane.png) {style (Detail_L)}
+											}
+										}
+									}
+									vbox {
+										grow(2)
+										halign (Center)
+										valign (Bottom)
+										content {
+											text ("#{value(NearWayInfo.Airplane[0].endStationName)}") {
+												style (Detail_M)
+											}
+										}
+									}
+								}
+							}
+							hbox {//출발시간이랑 도착시간 표시
+								content {
+									vbox {
+										grow(2)
+										halign (Center)
+										valign (Top)
+										content {
+											text {
+												value ("#{value(NearWayInfo.Airplane[0].AirplaneStation[0].departureTime)}")//출발시간 넣기
+												style (Title_S)
+											}
+										}
+									}
+									vbox {
+										grow(5)
+										halign (Center)
+										valign (Top)
+										content {
+											text {
+												value ("#{value(NearWayInfo.Airplane[0].AirplaneStation[0].runDay)} 운행")
+												style (Detail_L_Soft)
+												
+											}
+										}
+									}
+									vbox {
+										grow(2)
+										halign (Center)
+										valign (Top)
+										content {
+											text {
+												value ("#{value(NearWayInfo.Airplane[0].AirplaneStation[0].arrivalTime)}") //도착시간 넣기
+												style (Title_S)
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				else-if (NearWayInfo.airplanecount == 0) {
+					compound-card {
+						content {
+							hbox {
+								content {
+									vbox {
+										valign (Bottom)
+										content {
+											single-line {
+												text {
+													value ("항공")
+													style (Title_XS)
+												}
+											}
+										}
+									}
+									vbox {
+										grow (4)
+										valign (Bottom)
+										halign (Start)
+										content {
+											text {
+												value ("비행기로 가는 경로가 없습니다")
+												style (Detail_M_Soft)
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				else-if (NearWayInfo.airplanecount > 0 && empty(NearWayInfo.Airplane[0].AirplaneStation[0])) {
+					compound-card {
+						content {
+							hbox {
+								content {
+									vbox {
+										valign (Bottom)
+										content {
+											single-line {
+												text {
+													value ("항공")
+													style (Title_XS)
+												}
+											}
+										}
+									}
+									vbox {
+										grow (4)
+										valign (Bottom)
+										halign (Start)
+										content {
+											text {
+												value ("현재시간 이후로 비행기가 운행하지 않습니다")
+												style (Detail_M_Soft)
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				hbox {
+					content {
+						vbox {
+							grow (5)
+							halign (Center)
+							valign (Middle)
+							content {
+								single-line {
+									image {
+										url (/images/ci.png)
+										style (Detail_L)
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,23 @@
+result-view {
+	match {
+		ExpressBus (result) {
+			min (Required) max (One)
+		}
+	}
+	
+	message {
+		//template ("고속버스를 이용하여 가는 방법입니다")
+		template-macro (CityWayInfo_expressbuscount) {
+			param (ExpressBus) {
+				expression(result)
+			}
+		}
+	}
+	render {
+		layout-macro (CityWayInfo-Express) {
+			param (ExpressBus) {
+				expression(result)
+			}
+		}
+	}
+}

@@ -1,0 +1,15 @@
+structure (standingFare) {
+  description (열차 입석 요금)
+   property (weekday) {
+    type (weekday)
+    min (Optional) max (One)
+  }
+  property (weekend) {
+    type (weekend)
+    min (Optional) max (One)
+  }
+  property (holiday) {
+    type (holiday)
+    min (Optional) max (One)
+  }
+}

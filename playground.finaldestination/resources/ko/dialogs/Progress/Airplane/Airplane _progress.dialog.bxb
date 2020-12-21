@@ -1,0 +1,4 @@
+dialog (Progress) {
+  match: Airplane (this)
+  template("항공편 탐색중입니다.")
+}

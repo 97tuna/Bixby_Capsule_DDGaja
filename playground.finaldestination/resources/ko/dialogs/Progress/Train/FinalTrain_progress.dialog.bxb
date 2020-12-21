@@ -1,0 +1,4 @@
+dialog (Progress) {
+  match: FinalTrain (this)
+  template("오늘의 기차 시간표를 탐색중입니다.")
+}

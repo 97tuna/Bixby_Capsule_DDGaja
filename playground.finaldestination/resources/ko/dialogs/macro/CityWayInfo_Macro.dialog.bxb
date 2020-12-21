@@ -1,0 +1,96 @@
+template-macro-def (NearWayInfo_Result) {
+	params {
+		param (NearWayInfo) {
+			type (NearWayInfo)
+			min (Required) max (One)
+		}
+	}
+  content: template ("#{value(NearWayInfo.DepartCity)}에서 #{value(NearWayInfo.ArrivalCity)}까지 경로를 찾았습니다")
+}
+template-macro-def (CityWayInfo_Result) {
+	params {
+		param (CityWayInfo) {
+			type (CityWayInfo)
+			min (Required) max (One)
+		}
+	}
+  content: template ("#{value(CityWayInfo.DepartCity)}에서 #{value(CityWayInfo.ArrivalCity)}까지 경로를 찾았습니다")
+}
+
+template-macro-def (CityWayInfo_NoResult) {
+	params {
+		param (CityWayInfo) {
+			type (CityWayInfo)
+			min (Required) max (One)
+		}
+	}
+  content: template ("해당 경로가 없습니다")
+}
+
+template-macro-def (NearWayInfo_NoResult) {
+	params {
+		param (NearWayInfo) {
+			type (NearWayInfo)
+			min (Required) max (One)
+		}
+	}
+  content: template ("해당 경로가 없습니다")
+}
+
+template-macro-def (CityWayInfo_Progress) {
+	params {
+		param (CityWayInfo) {
+			type (CityWayInfo)
+			min (Required) max (One)
+		}
+	}
+  content: template ("경로를 찾는중입니다")
+}
+template-macro-def (NearWayInfo_Progress) {
+	params {
+		param (NearWayInfo) {
+			type (NearWayInfo)
+			min (Required) max (One)
+		}
+	}
+  content: template ("경로를 찾는중입니다")
+}
+template-macro-def (CityWayInfo_airplanecount) {
+	params {
+		param (Airplane) {
+			type (Airplane)
+			min (Required) max (One)
+		}
+	}
+  content: template ("#{value(Airplane.airplanecount)}개의 항공편을 이용하는 방법이 있습니다")
+}
+
+template-macro-def (CityWayInfo_intercitybuscount) {
+	params {
+		param (IntercityBus) {
+			type (IntercityBus)
+			min (Required) max (One)
+		}
+	}
+  content: template ("#{value(IntercityBus.intercitybuscount)}개의 시외버스를 이용하는 방법이 있습니다")
+}
+
+template-macro-def (CityWayInfo_expressbuscount) {
+	params {
+		param (ExpressBus) {
+			type (ExpressBus)
+			min (Required) max (One)
+		}
+	}
+  content: template ("#{value(ExpressBus.expressbuscount)}개의 고속버스를 이용하는 방법이 있습니다")
+}
+
+template-macro-def (CityWayInfo_traincount) {
+	params {
+		param (Train) {
+			type (Train)
+			min (Required) max (One)
+		}
+	}
+  content: template ("#{value(Train.traincount)}개의 기차를 이용하는 방법이 있습니다")
+}

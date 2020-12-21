@@ -1,0 +1,4 @@
+dialog (Progress) {
+  match: Train(this)
+  template("기차 경로 탐색중입니다.")
+}

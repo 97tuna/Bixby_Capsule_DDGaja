@@ -1,0 +1,15 @@
+train (t-s4d36myecas0f778kcszsecea) {
+  utterance ("[g:NearWayInfo] 여기서 (대구)[v:ArrivalCity] 가자")
+  plan (Y2BmUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5en6piUXhiZWeeWn5DNr4FAYDFSZnAJWCdCRV4jfVsagosywxxzmzpJKBiYERiBmAJCMDCDBBMAA=)
+  last-modified (1608563286272)
+}
+train (t-sdisvoglwqekcz7ipd07y67tg) {
+  utterance ("[g:CityWayInfo] (연천)[v:DepartCity]에서 (고성)[v:ArrivalCity]으로")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEgPhgUQA=)
+  last-modified (1608563286191)
+}
+train (t-snvp0rax7q7ra173lt7m7sqp3) {
+  utterance ("[g:CityWayInfo] (서울)[v:DepartCity]부터 (부산)[v:ArrivalCity]까지 가자")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEgPhgUQA=)
+  last-modified (1608563286390)
+}

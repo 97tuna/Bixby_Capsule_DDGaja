@@ -1,0 +1,51 @@
+structure (TrainStation) {
+  description (열차 station 세부 정보)
+  property (railName) {
+    type (railName)
+    min (Optional) max (One)
+  }
+  property (trainClass) {
+    type (trainClass)
+    min (Optional) max (One)
+  }
+  property (departureTime) {
+    type (departureTime)
+    min (Optional) max (One)
+  }
+  property (arrivalTime) {
+    type (arrivalTime)
+    min (Optional) max (One)
+  }
+  property (wasteTime) {
+    type (wasteTime)
+    min (Optional) max (One)
+  }
+  property (runDay) {
+    type (runDay)
+    min (Optional) max (One)
+  }
+  property (generalFare) {
+    type (generalFare)
+    min (Optional) max (Many)
+  }
+  property (specialFare) {
+    type (specialFare)
+    min (Optional) max (One)
+  }
+  property (standingFare) {
+    type (standingFare)
+    min (Optional) max (Many)
+  }
+  property (fare) {
+    type (fare)
+    min (Optional) max (Many)
+  }
+  property (trainNo) {
+    type (trainNo)
+    min (Optional) max (Many)
+  }
+  property (totalcount) {
+    type (totalcount)
+    min (Optional) max (Many)
+  }
+}

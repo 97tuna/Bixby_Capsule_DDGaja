@@ -1,0 +1,20 @@
+train (t-n5jf4ipnabn11rsn22idtnok7) {
+  utterance ("[g:CityWayInfo] (서울)[v:DepartCity]에서 (부산)[v:ArrivalCity] 어캐가노")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEgPhgUQA=)
+  last-modified (1608563284767)
+}
+train (t-nrhyldia927i0mzb0pqqfp35k) {
+  utterance ("[g:NearWayInfo] (원주)[v:ArrivalCity] 어떻게 가")
+  plan (Y2BmUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5en6piUXhiZWeeWn5DNr4FAYDFSZnAJWCdCRV4jfVsagosywxxzmzpJKBiYERiBmAJCMDCDBBMAA=)
+  last-modified (1608563284645)
+}
+train (t-nt2w6y15k23s7fyp7y35ntlrh) {
+  utterance ("[g:NearWayInfo] 여기서 (양구)[v:ArrivalCity] 어떻게 가")
+  plan (Y2BmUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5en6piUXhiZWeeWn5DNr4FAYDFSZnAJWCdCRV4jfVsagosywxxzmzpJKBiYERiBmAJCMDCDBBMAA=)
+  last-modified (1608563284706)
+}
+train (t-nzk4oijovejnu0lg2oncoilzs) {
+  utterance ("[g:CityWayInfo] (서울)[v:DepartCity]에서 (울산)[v:ArrivalCity] 찾고싶어")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEgPhgUQA=)
+  last-modified (1608563284588)
+}

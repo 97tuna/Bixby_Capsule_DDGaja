@@ -1,0 +1,10 @@
+train (t-wjqh5xt6yb5g8chmzimc7h88i) {
+  utterance ("[g:CityWayInfo] (인천)[v:DepartCity]에서 (서울)[v:ArrivalCity] 찾아줘")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEgPhgUQA=)
+  last-modified (1608563287073)
+}
+train (t-wwnzfyc87830mw21sai4me7rh) {
+  utterance ("[g:SearchWay] (수원)[v:DepartCity]에서 (거제도)[v:ArrivalCity]까지 가는 법 확인해줘")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEwEUB)
+  last-modified (1608563287137)
+}
