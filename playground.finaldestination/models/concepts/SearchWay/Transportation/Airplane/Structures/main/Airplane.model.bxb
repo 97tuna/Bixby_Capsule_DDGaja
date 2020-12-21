@@ -1,0 +1,47 @@
+structure (Airplane) {
+  description (항공 정보)
+  property (startStationName) {
+    type (startStationName)
+    min (Optional) max (One)
+  }
+  property (endStationName) {
+    type (endStationName)
+    min (Optional) max (One)
+  }
+  property (AirplaneStation) {
+    type (AirplaneStation)
+    min (Optional) max (Many)
+  }
+  property (startmap) {
+    type (startmap)
+    min (Optional) max (One)
+  }
+  property (endmap) {
+    type (endmap)
+    min (Optional) max (One)
+  }
+  property ( startStationID) {
+    type(startStationID)
+    min (Optional) max(One)
+  }
+  property ( endStationID) {
+    type(endStationID)
+    min (Optional) max(One)
+  }
+  property (count){
+    type(count)
+    min (Optional) max (One)
+  }
+  property (pos){
+    type(pos)
+    min (Optional) max(One)
+  }
+  property (totalcount) {
+    type (totalcount)
+    min (Optional) max (Many)
+  }
+  property (airplanecount) {
+    type (airplanecount)
+    min (Optional) max (Many)
+  }
+}

@@ -1,0 +1,3 @@
+text (startStationName) {
+  description (열차 출발역 이름)
+}

@@ -1,0 +1,20 @@
+train (t-p29yt3jce5heif81pdwjzvj3x) {
+  utterance ("[g:CityWayInfo] (서울)[v:DepartCity]부터 (부산)[v:ArrivalCity] 가자미")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEgPhgUQA=)
+  last-modified (1608563285163)
+}
+train (t-pde64sascpgtrheax6utukj63) {
+  utterance ("[g:CityWayInfo] (청도)[v:DepartCity]에서 (청주)[v:ArrivalCity] 가고싶어")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEgPhgUQA=)
+  last-modified (1608563285245)
+}
+train (t-pfodtgp01awucqcrdi4bgvifn) {
+  utterance ("[g:NearWayInfo] (창원)[v:ArrivalCity] 가는 법")
+  plan (Y2BmUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5en6piUXhiZWeeWn5DNr4FAYDFSZnAJWCdCRV4jfVsagosywxxzmzpJKBiYERiBmAJCMDCDBBMAA=)
+  last-modified (1608563285096)
+}
+train (t-pqirtvf69opg189689axus3lr) {
+  utterance ("[g:CityWayInfo] (완주)[v:DepartCity]에서 (서울)[v:ArrivalCity]")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEgPhgUQA=)
+  last-modified (1608563285516)
+}

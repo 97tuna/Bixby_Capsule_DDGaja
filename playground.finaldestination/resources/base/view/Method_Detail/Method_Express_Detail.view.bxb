@@ -1,0 +1,28 @@
+result-view {
+	match {
+		FinalExpressBus (result) {
+			min (Required) max (One)
+		}
+	}
+	// message {
+	// 	//template ("해당 터미널의 시간표 입니다")
+	// 	template ("#{value(result.ExpressStation.startTerminal)}에서 #{value(result.ExpressStation.destTerminal)}까지 일정표를 찾았습니다.")
+	// }
+	
+	message {
+		if (exists(result.ExpressStation.schedule)) {
+			template ("#{value(result.ExpressStation.startTerminal)}에서 #{value(result.ExpressStation.destTerminal)}까지 일정표를 찾았습니다.")
+		}
+		else-if (empty(result.ExpressStation.schedule)) {
+			template ("현재 시간 이후에 운행하는 버스가 없습니다")
+		}
+	}
+	
+	render {
+		layout-macro (CityWayInfo-ExpressDetail) {
+			param (FinalExpressBus) {
+				expression(result)
+			}
+		}
+	}
+}

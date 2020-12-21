@@ -1,0 +1,313 @@
+layout-macro-def (CityWayInfo-ExpressDetail) {
+	params {
+		param (FinalExpressBus) {
+			type (FinalExpressBus)
+			min (Required) //max (One)
+		}
+	}
+	content {
+		section {
+			content {
+				split-input-cell {
+					left {
+						input-cell {
+							label {
+								template ("카카오지도에서")
+							}
+							value {
+								template ("출발지까지 길찾기")
+							}
+							on-click {
+								intent {
+									goal: openStartMap
+									value: $expr(FinalExpressBus.startmap)
+								}
+							}
+						}
+					}
+					right {
+						input-cell {
+							label {
+								template ("카카오지도에서")
+							}
+							value {
+								template ("도착지에서 길찾기")
+							}
+							on-click {
+								intent {
+									goal: openEndMap
+									value: $expr(FinalExpressBus.endmap)
+								}
+							}
+						}
+					}
+				}
+				for-each (FinalExpressBus.ExpressStation) {
+					as () {
+						index-var (j)
+						for-each (FinalExpressBus.ExpressStation[j].schedule) { //스케줄이 없으면 레이아웃에서 표시안댐 // 카운트도 추가
+							as () {
+								index-var (i)
+								compound-card {
+									content {
+										hbox {//어떤 기차인지 표시
+											content {
+												if (FinalExpressBus[0].ExpressStation[j].schedule[i].type == '프리미엄') {
+													vbox {
+														halign (Start)
+														//grow (1)
+														content {
+															single-line {
+																image (/images/Grade/Gold.png)
+															}
+														}
+													}
+												}
+												if (FinalExpressBus[0].ExpressStation[j].schedule[i].type == '우등') {
+													vbox {
+														halign (Start)
+														//grow (1)
+														content {
+															single-line {
+																image (/images/Grade/Green.png)
+															}
+														}
+													}
+												}
+												if (FinalExpressBus[0].ExpressStation[j].schedule[i].type == '일반') {
+													vbox {
+														halign (Start)
+														//grow (1)
+														content {
+															single-line {
+																image (/images/Grade/Blue.png)
+															}
+														}
+													}
+												}
+												if (FinalExpressBus[0].ExpressStation[j].schedule[i].night == '심야') {
+													vbox {
+														halign (Start)
+														valign (Bottom)
+														//grow (1)
+														content {
+															text {
+																value ("#{value(FinalExpressBus[0].ExpressStation[j].schedule[i].type)}")
+																style (Title_XS)
+															}
+														}
+													}
+												}
+												else {
+													vbox {
+														halign (Start)
+														valign (Bottom)
+														grow (1)
+														content {
+															text {
+																value ("#{value(FinalExpressBus[0].ExpressStation[j].schedule[i].type)}")
+																style (Title_XS)
+															}
+														}
+													}
+												}
+												if (FinalExpressBus[0].ExpressStation[j].schedule[i].night == '심야') {
+													if (FinalExpressBus[0].ExpressStation[j].schedule[i].type == '프리미엄') {
+														vbox {
+															halign (Start)
+															valign (Bottom)
+															grow (3)
+															content {
+																text {
+																	value ("#{value(FinalExpressBus[0].ExpressStation[j].schedule[i].night)}")
+																	style (Detail_M_Soft)
+																}
+															}
+														}
+													}
+													else {
+														vbox {
+															halign (Start)
+															valign (Bottom)
+															grow (5)
+															content {
+																text {
+																	value ("#{value(FinalExpressBus[0].ExpressStation[j].schedule[i].night)}")
+																	style (Detail_M_Soft)
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+										hbox {//출발시간이랑 도착시간 표시
+											content {
+												vbox {
+													halign (Center)
+													valign (Bottom)
+													grow(2)
+													content {
+														text {
+															value ("#{value(FinalExpressBus[0].ExpressStation[j].startTerminal)}")
+															style (Detail_M)
+														}
+													}
+												}
+												vbox {
+													grow(5)
+													halign (Center)
+													valign (Bottom)
+													content {
+														single-line {
+															image (/images/Bus.png) { style (Detail_L)}
+														}
+													}
+												}
+												vbox {
+													grow(2)
+													halign (Center)
+													valign (Bottom)
+													content {
+														text ("#{value(FinalExpressBus[0].ExpressStation[j].destTerminal)}") {
+															style (Detail_M)
+														}
+													}
+												}
+											}
+										}
+										hbox {//출발시간이랑 도착시간 표시
+											content {
+												vbox {
+													grow(2)
+													halign (Center)
+													valign (Top)
+													content {
+														text {
+															value ("#{value(FinalExpressBus[0].ExpressStation[j].schedule[i].time)}")
+															style (Title_S)
+														}
+													}
+												}
+												vbox {
+													grow(5)
+													halign (Center)
+													valign (Top)
+													content {
+														text {
+															value ("편도 #{value(FinalExpressBus[0].ExpressStation[j].wasteTime)} 소요")
+															style (Detail_L_Soft)
+														}
+													}
+												}
+												vbox {
+													grow(2)
+													halign (Center)
+													valign (Top)
+													content {
+														text {
+															value ("도착") //도착시간 넣기
+															style (Title_S)
+														}
+													}
+												}
+											}
+										}
+										divider
+										hbox {//성인인지랑 요금 표시
+											content {
+												vbox {
+													grow(4)
+													halign (Start)
+													content {
+														text {
+															value ("성인")
+															style (Detail_L)
+														}
+													}
+												}
+												vbox {
+													grow(2)
+													halign (End)
+													valign (Bottom)
+													content {
+														text {
+															value ("총요금")
+															style (Detail_M_Soft)
+														}
+													}
+												}
+												vbox {
+													//grow(2)
+													halign (End)
+													content {
+														if (FinalExpressBus[0].ExpressStation[j].schedule[i].night == '주간') {
+															if (FinalExpressBus[0].ExpressStation[j].schedule[i].type == '우등') {
+																text {
+																	value ("#{value(FinalExpressBus[0].ExpressStation[j].specialFare)}원")
+																	style (Detail_L)
+																}
+															}
+															else-if (FinalExpressBus[0].ExpressStation[j].schedule[i].type == '프리미엄') {
+																if (exists(FinalExpressBus[0].ExpressStation[j].PremiumFare)) {
+																	text {
+																		value ("#{value(FinalExpressBus[0].ExpressStation[j].PremiumFare)}원")
+																		style (Detail_L)
+																	}
+																}
+																else {
+																	text {
+																		value ("#{value(FinalExpressBus[0].ExpressStation[j].specialFare)}원")
+																		style (Detail_L)
+																	}
+																}
+															}
+															else-if (FinalExpressBus[0].ExpressStation[j].schedule[i].type == '일반') {
+																text {
+																	value ("#{value(FinalExpressBus[0].ExpressStation[j].normalFare)}원")
+																	style (Detail_L)
+																}
+															}
+														}
+														else-if (FinalExpressBus[0].ExpressStation[j].schedule[i].night == '심야') {
+															if (FinalExpressBus[0].ExpressStation[j].schedule[i].type == '우등') {
+																text {
+																	value ("#{value(FinalExpressBus[0].ExpressStation[j].nightSpecialFare)}원")
+																	style (Detail_L)
+																}
+															}
+															else-if (FinalExpressBus[0].ExpressStation[j].schedule[i].type == '프리미엄') {
+																if (exists(FinalExpressBus[0].ExpressStation[j].nightPremiumFare)) {
+																	text {
+																		value ("#{value(FinalExpressBus[0].ExpressStation[j].nightPremiumFare)}원")
+																		style (Detail_L)
+																	}
+																}
+																else {
+																	text {
+																		value ("#{value(FinalExpressBus[0].ExpressStation[j].nightSpecialFare)}원")
+																		style (Detail_L)
+																	}
+																}
+															}
+															else-if (FinalExpressBus[0].ExpressStation[j].schedule[i].type == '일반') {
+																text {
+																	value ("#{value(FinalExpressBus[0].ExpressStation[j].nightFare)}원")
+																	style (Detail_L)
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

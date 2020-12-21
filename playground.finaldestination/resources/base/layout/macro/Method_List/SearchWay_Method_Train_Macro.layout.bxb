@@ -1,0 +1,139 @@
+layout-macro-def (CityWayInfo-Train) {
+	params {
+		param (Train) {
+			type (Train)
+			min (Required) //max (One)
+		}
+	}
+	content {
+		section {
+			content {
+				for-each (Train) {
+					as () {
+						index-var (j)
+						compound-card {
+							on-click {
+								intent {
+									goal: ThirdTrain
+									value: $expr(Train[j])
+								}
+							}
+							content {
+								hbox {
+									content {
+										vbox {
+											halign (Center)
+											valign (Bottom)
+											grow(1)
+											content {
+												text {
+													value ("#{value(Train[j].startStationName)}")
+													style (Detail_M)
+													
+												}
+											}
+										}
+										vbox {
+											grow(3)
+											halign (Center)
+											valign (Bottom)
+											content {
+												single-line {
+													image (/images/Train.png) { style (Detail_L)}
+												}
+											}
+										}
+										vbox {
+											grow(1)
+											halign (Center)
+											valign (Bottom)
+											content {
+												text ("#{value(Train[j].endStationName)}") {
+													style (Detail_M)
+												}
+											}
+										}
+									}
+								}
+								if (exists(Train[j].TrainStation[0].wasteTime)) {
+									hbox {//출발시간이랑 도착시간 표시
+										content {
+											vbox {
+												halign (Center)
+												valign (Top)
+												grow(1)
+												content {
+													text {
+														value ("출발역")
+														style (Detail_L)
+													}
+												}
+											}
+											vbox {
+												grow(3)
+												halign (Center)
+												valign (Top)
+												content {
+													text ("편도 #{value(Train[j].TrainStation[0].wasteTime)} 소요") {
+														style (Detail_M_Soft)
+													}
+												}
+											}
+											vbox {
+												grow(1)
+												halign (Center)
+												valign (Top)
+												content {
+													text ("도착역") {
+														style (Detail_L)
+													}
+												}
+											}
+										}
+									}
+								}
+								else-if (empty(Train[j].TrainStation[0].wasteTime)) {
+									hbox {//출발시간이랑 도착시간 표시
+										content {
+											vbox {
+												halign (Center)
+												valign (Top)
+												grow(1)
+												content {
+													text {
+														value ("출발역")
+														style (Detail_L)
+													}
+												}
+											}
+											vbox {
+												grow(3)
+												halign (Center)
+												valign (Top)
+												content {
+													text ("현재 운행하는 열차가 없습니다") {
+														style (Detail_M_Soft)
+													}
+												}
+											}
+											vbox {
+												grow(1)
+												halign (Center)
+												valign (Top)
+												content {
+													text ("도착역") {
+														style (Detail_L)
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

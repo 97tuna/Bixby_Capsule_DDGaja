@@ -1,0 +1,3 @@
+text (runDay) {
+  description (열차 운행 정보 ex: 매일, 토일)
+}

@@ -1,0 +1,4 @@
+dialog (Progress) {
+  match: ExpressBus (this)
+  template("고속 버스 경로 탐색중입니다.")
+}

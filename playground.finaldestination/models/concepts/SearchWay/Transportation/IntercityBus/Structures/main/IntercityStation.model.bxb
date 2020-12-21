@@ -1,0 +1,43 @@
+structure (IntercityStation) {
+  description (시외버스 세부 정보)
+  property (startTerminal) {
+    type (startTerminal)
+    min (Optional) max (One)
+  }
+  property (destTerminal) {
+    type (destTerminal)
+    min (Optional) max (One)
+  }
+  property (firstTime) {
+    type (firstTime)
+    min (Optional) max (One)
+  }
+  property (lastTime) {
+    type (lastTime)
+    min (Optional) max (One)
+  }
+  property (interval) {
+    type (interval)
+    min (Optional) max (One)
+  }
+  property (wasteTime) {
+    type (wasteTime)
+    min (Optional) max (One)
+  }
+  property (normalFare) {
+    type (normalFare)
+    min (Optional) max (One)
+  }
+  property (nightFare) {
+    type (nightFare)
+    min (Optional) max (One)
+  }
+  property (schedule) {
+    type (schedule)
+    min (Optional) max (Many)
+  }
+  property (nightSchedule) {
+    type (nightSchedule)
+    min (Optional) max (One)
+  }
+}

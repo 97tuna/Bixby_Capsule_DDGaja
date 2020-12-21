@@ -1,0 +1,47 @@
+structure (CityWayInfo) {
+  description (도시에서 도시로 갈 수 있는 모든 방법을 return 한다.)
+  property (ExpressBus) {
+    type (ExpressBus)
+    min (Optional) max (Many)
+  }
+  property (IntercityBus) {
+    type (IntercityBus)
+    min (Optional) max (Many)
+  }
+  property (Train) {
+    type (Train)
+    min (Optional) max (Many)
+  }
+  property (Airplane) {
+    type (Airplane)
+    min (Optional) max (Many)
+  }
+  property (ArrivalCity) {
+    type (ArrivalCity)
+    min (Optional) max (Many)
+  }
+  property (DepartCity) {
+    type (DepartCity)
+    min (Optional) max (Many)
+  }
+  property (totalcount) {
+    type (totalcount)
+    min (Optional) max (Many)
+  }
+  property (traincount) {
+    type (traincount)
+    min (Optional) max (Many)
+  }
+  property (intercitybuscount) {
+    type (intercitybuscount)
+    min (Optional) max (Many)
+  }
+  property (expressbuscount) {
+    type (expressbuscount)
+    min (Optional) max (Many)
+  }
+  property (airplanecount) {
+    type (airplanecount)
+    min (Optional) max (Many)
+  }
+}

@@ -1,0 +1,15 @@
+structure (specialFare) {
+  description (열차 특별요금 ) //영준이만 탈듯 난 돈없..
+  property (weekday) {
+    type (weekday)
+    min (Optional) max (One)
+  }
+  property (weekend) {
+    type (weekend)
+    min (Optional) max (One)
+  }
+  property (holiday) {
+    type (holiday)
+    min (Optional) max (One)
+  }
+}

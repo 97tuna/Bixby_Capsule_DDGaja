@@ -1,0 +1,11 @@
+structure (pos) {
+  description (좌표)
+  property (longitude) {
+    type (longitude)
+    min (Optional) max (One)
+  }
+  property (latitude) {
+    type (latitude)
+    min (Optional) max (One)
+  }
+}

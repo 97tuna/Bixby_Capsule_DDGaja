@@ -1,0 +1,3 @@
+text (arrivalTime) {
+  description (열차 도착 시간)
+}

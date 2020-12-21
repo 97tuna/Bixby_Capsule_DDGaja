@@ -1,0 +1,139 @@
+layout-macro-def (CityWayInfo-Express) {
+	params {
+		param (ExpressBus) {
+			type (ExpressBus)
+			min (Required) //max (One)
+		}
+	}
+	content {
+		section {
+			content {
+				for-each (ExpressBus) {
+					as () {
+						index-var (j)
+						compound-card {
+							on-click {
+								intent {
+									goal: ThirdExpressBus
+									value: $expr(ExpressBus[j])
+								}
+							}
+							content {
+								hbox {
+									content {
+										vbox {
+											halign (Center)
+											valign (Bottom)
+											grow(2)
+											content {
+												text {
+													value ("#{value(ExpressBus[j].ExpressStation[0].startTerminal)}")
+													style (Detail_M)
+												}
+											}
+										}
+										vbox {
+											grow(5)
+											halign (Center)
+											valign (Bottom)
+											content {
+												single-line {
+													image (/images/Bus.png) {style (Detail_L) }
+												}
+											}
+										}
+										vbox {
+											halign (Center)
+											valign (Bottom)
+											grow(2)
+											content {
+												text {
+													value ("#{value(ExpressBus[j].ExpressStation[0].destTerminal)}")
+													style (Detail_M)
+												}
+											}
+										}
+									}
+								}
+							if (exists(ExpressBus[j].ExpressStation[0].schedule)) {
+								hbox {//출발시간이랑 도착시간 표시
+									content {
+										vbox {
+											halign (Center)
+											valign (Bottom)
+											grow(1)
+											content {
+												text {
+													value ("출발")
+													style (Detail_L)
+												}
+											}
+										}
+										vbox {
+											grow(3)
+											halign (Center)
+											valign (Bottom)
+											content {
+												text ("편도 #{value(ExpressBus[j].ExpressStation[0].wasteTime)} 소요") {
+													style (Detail_M_Soft)
+												}
+											}
+										}
+										vbox {
+											grow(1)
+											halign (Center)
+											valign (Bottom)
+											content {
+												text ("도착") {
+													style (Detail_L)
+												}
+											}
+										}
+									}
+								}
+							}
+								else-if (empty(ExpressBus[j].ExpressStation[0].schedule)) {
+									hbox {//출발시간이랑 도착시간 표시
+										content {
+											vbox {
+												halign (Center)
+												valign (Top)
+												grow(1)
+												content {
+													text {
+														value ("출발역")
+														style (Detail_L)
+													}
+												}
+											}
+											vbox {
+												grow(3)
+												halign (Center)
+												valign (Top)
+												content {
+													text ("현재 운행하는 버스가 없습니다") {
+														style (Detail_M_Soft)
+													}
+												}
+											}
+											vbox {
+												grow(1)
+												halign (Center)
+												valign (Top)
+												content {
+													text ("도착역") {
+														style (Detail_L)
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
