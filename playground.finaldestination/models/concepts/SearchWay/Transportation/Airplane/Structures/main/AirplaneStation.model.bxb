@@ -1,0 +1,23 @@
+structure (AirplaneStation) {
+  description (항공 세부 정보)
+  property (airline) {
+    type (airline)
+    min (Optional) max (One)
+  }
+  property (departureTime) {
+    type (departureTime)
+    min (Optional) max (One)
+  }
+  property (arrivalTime) {
+    type (arrivalTime)
+    min (Optional) max (One)
+  }
+  property (flight) {
+    type (flight)
+    min (Optional) max (One)
+  }
+  property (runDay) {
+    type (runDay)
+    min (Optional) max (One)
+  }
+}

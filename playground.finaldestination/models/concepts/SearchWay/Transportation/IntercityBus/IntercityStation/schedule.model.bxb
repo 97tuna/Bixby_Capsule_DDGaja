@@ -1,0 +1,15 @@
+structure (schedule) {
+  description (시외버스 운행시간표)
+  property (time) {
+    type (time)
+    min (Optional) max (One)
+  }
+  property (type) {
+    type (type)
+    min (Optional) max (One)
+  }
+  property (night) {
+    type (night)
+    min (Optional) max (One)
+  }
+}

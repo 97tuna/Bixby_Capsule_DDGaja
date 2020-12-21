@@ -1,0 +1,12 @@
+action (SecondIntercityBus) {
+  type(Search)
+  description (on-click 넘기면 받아오는 시외버스 세부 정보)
+  collect {
+    input (IntercityBus) {
+      type (IntercityBus)
+      min (Optional) max (Many)
+    }
+  }
+  output (IntercityBus)
+}
+

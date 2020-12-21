@@ -1,0 +1,19 @@
+structure (FinalExpressBus) {
+  description (세번째 고속버스 정보)
+  property (ExpressStation) {
+    type (ExpressStation)
+    min (Optional) max (Many)
+  }
+  property (startmap) {
+    type (startmap)
+    min (Optional) max (One)
+  }
+  property (endmap) {
+    type (endmap)
+    min (Optional) max (One)
+  }
+  property (totalcount) {
+    type (totalcount)
+    min (Optional) max (Many)
+  }
+}

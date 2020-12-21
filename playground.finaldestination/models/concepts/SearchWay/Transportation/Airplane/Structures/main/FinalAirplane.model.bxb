@@ -1,0 +1,31 @@
+structure (FinalAirplane) {
+  description (세번째 항공 정보)
+  property (startStationName) {
+    type (startStationName)
+    min (Optional) max (One)
+  }
+  property (endStationName) {
+    type (endStationName)
+    min (Optional) max (One)
+  }
+  property (AirplaneStation) {
+    type (AirplaneStation)
+    min (Optional) max (Many)
+  }
+  property (startmap) {
+    type (startmap)
+    min (Optional) max (One)
+  }
+  property (endmap) {
+    type (endmap)
+    min (Optional) max (One)
+  }
+  property (totalcount) {
+    type (totalcount)
+    min (Optional) max (Many)
+  }
+  property (count) {
+    type (count)
+    min (Optional) max (Many)
+  }
+}

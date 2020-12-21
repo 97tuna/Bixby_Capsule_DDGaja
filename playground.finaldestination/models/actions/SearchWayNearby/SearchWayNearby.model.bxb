@@ -1,0 +1,23 @@
+action (SearchWayNearby) {
+	type (Search)
+	description (주변에서 해당 도시까지 갈 수 있는 모든 방법을 Search 한다.)
+	collect {
+		input (location) {
+			min (Optional) max (One)
+			type (location)
+			default-init{
+				if ($user.currentLocation.$exists){
+					intent {
+						goal: geo.GeoPoint
+						value-set: geo.CurrentLocation { $expr($user.currentLocation) }
+					}
+				}
+			}
+		}
+		input (ArrivalCity) {
+			type (ArrivalCity)
+			min (Optional) max (One)
+		}
+	}
+	output (NearWayInfo)
+}

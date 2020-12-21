@@ -1,0 +1,3 @@
+text (trainClass) {
+  description (열차 종류,등급 )
+}

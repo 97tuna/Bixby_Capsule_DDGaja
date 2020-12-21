@@ -1,0 +1,11 @@
+structure (fare) {
+  description (열차 요금 정리)
+  property (general) {
+    type (general)
+    min (Optional) max (One)
+  }
+  property (standing) {
+    type (standing)
+    min (Optional) max (One)
+  }
+}

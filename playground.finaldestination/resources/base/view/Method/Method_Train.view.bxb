@@ -1,0 +1,25 @@
+result-view {
+	match {
+		Train (result) {
+			min (Required) max (One)
+		}
+	}
+	
+	message {
+		//template ("기차를 이용하여 가는 방법입니다")
+		template-macro (CityWayInfo_traincount) {
+			param (Train) {
+				expression(result)
+			}
+		}	
+	}
+	
+	
+	render {
+		layout-macro (CityWayInfo-Train) {
+			param (Train) {
+				expression (result)
+			}
+		}
+	}
+}

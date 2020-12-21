@@ -1,0 +1,327 @@
+layout-macro-def (CityWayInfo-TrainDetail) { //시간표가 나와야 하는데....
+	params {
+		param (FinalTrain) {
+			type (FinalTrain)
+			min (Required) //max (One)
+		}
+	}
+	content {
+		section {
+			content {
+				split-input-cell {
+					left {
+						input-cell {
+							label {
+								template ("카카오지도에서")
+							}
+							value {
+								template ("출발역까지 길찾기")
+							}
+							on-click {
+								intent {
+									goal: openStartMap
+									value: $expr(FinalTrain.startmap)
+								}
+							}
+						}
+					}
+					right {
+						input-cell {
+							label {
+								template ("카카오지도에서")
+							}
+							value {
+								template ("도착역에서 길찾기")
+							}
+							on-click {
+								intent {
+									goal: openEndMap
+									value: $expr(FinalTrain.endmap)
+								}
+							}
+						}
+					}
+				}
+				for-each (FinalTrain[0].TrainStation) {
+					as (item) {
+						index-var (j)
+						compound-card {
+							content {
+								hbox {//어떤 기차인지 표시
+									content {
+										if (FinalTrain[0].TrainStation[j].trainClass == 'KTX') {
+											vbox {
+												halign (Start)
+												//grow (1)
+												content {
+													single-line {
+														image (/images/Grade/BrilliantBlue.png)
+													}
+												}
+											}
+										}
+										if (FinalTrain[0].TrainStation[j].trainClass == 'ITX-새마을') {
+											vbox {
+												halign (Start)
+												//grow (1)
+												content {
+													single-line {
+														image (/images/Grade/RED.png)
+													}
+												}
+											}
+										}
+										if (FinalTrain[0].TrainStation[j].trainClass == '새마을') {
+											vbox {
+												halign (Start)
+												//grow (1)
+												content {
+													single-line {
+														image (/images/Grade/BrilliantBlue.png)
+													}
+												}
+											}
+										}
+										if (FinalTrain[0].TrainStation[j].trainClass == '무궁화') {
+											vbox {
+												halign (Start)
+												//grow (1)
+												content {
+													single-line {
+														image (/images/Grade/Coral.png)
+													}
+												}
+											}
+										}
+										if (FinalTrain[0].TrainStation[j].trainClass == 'SRT') {
+											vbox {
+												halign (Start)
+												//grow (1)
+												content {
+													single-line {
+														image (/images/Grade/Purple.png)
+													}
+												}
+											}
+										}
+										vbox {
+											halign (Start)
+											content {
+												text {
+													value ("#{value(FinalTrain[0].TrainStation[j].trainClass)}")
+													style (Title_XS)
+												}
+											}
+										}
+										vbox {
+											grow (5)
+											halign (Start)
+											valign (Bottom)
+											content {
+												text {
+													value ("#{value(FinalTrain[0].TrainStation[j].trainNo)} / #{value(FinalTrain[0].TrainStation[j].runDay)} 운행")
+													style (Detail_M_Soft)
+												}
+											}
+										}
+									}
+								}
+								hbox {//출발시간이랑 도착시간 표시
+									content {
+										vbox {
+											halign (Center)
+											valign (Bottom)
+											grow(2)
+											content {
+												text {
+													value ("#{value(FinalTrain[0].startStationName)}")
+													style (Detail_M)
+												}
+											}
+										}
+										vbox {
+											grow(5)
+											halign (Center)
+											valign (Bottom)
+											content {
+												single-line {
+													image (/images/Train.png) {style (Detail_L)}
+												}
+											}
+										}
+										vbox {
+											grow(2)
+											halign (Center)
+											valign (Bottom)
+											content {
+												text ("#{value(FinalTrain[0].endStationName)}") {
+													style (Detail_M)
+												}
+											}
+										}
+									}
+								}
+								hbox {//출발시간이랑 도착시간 표시
+									content {
+										vbox {
+											grow(2)
+											halign (Center)
+											valign (Top)
+											content {
+												text {
+													value ("#{value(FinalTrain[0].TrainStation[j].departureTime)}")
+													style (Title_XS)
+												}
+											}
+										}
+										vbox {
+											grow(5)
+											halign (Center)
+											valign (Top)
+											content {
+												text {
+													value ("편도 #{value(FinalTrain[0].TrainStation[j].wasteTime)} 소요")
+													style (Detail_L_Soft)
+													
+												}
+											}
+										}
+										vbox {
+											grow(2)
+											halign (Center)
+											valign (Top)
+											content {
+												text {
+													value ("#{value(FinalTrain[0].TrainStation[j].arrivalTime)}")
+													style (Title_XS)
+												}
+											}
+										}
+									}
+								}
+								divider
+								hbox {//성인인지랑 요금 표시
+									content {
+										vbox {
+											grow(4)
+											halign (Start)
+											content {
+												text {
+													value ("일반석, 성인")
+													style (Detail_L)
+												}
+											}
+										}
+										vbox {
+											grow(3)
+											halign (End)
+											valign (Bottom)
+											content {
+												text {
+													value ("총요금")
+													style (Detail_M_Soft)
+												}
+											}
+										}
+										vbox {
+											//grow(2)
+											halign (End)
+											content {
+												if (FinalTrain[0].TrainStation[j].runDay == '토일' || FinalTrain[0].TrainStation[j].runDay == '토' || FinalTrain[0].TrainStation[j].runDay == '일') {
+													text {
+														value ("#{value(FinalTrain[0].TrainStation[j].generalFare.holiday)}원")
+														style (Detail_L)
+													}
+												}
+												if (FinalTrain[0].TrainStation[j].runDay == '금토일' || FinalTrain[0].TrainStation[j].runDay == '금토' || FinalTrain[0].TrainStation[j].runDay == '금일' || FinalTrain[0].TrainStation[j].runDay == '토일월') {
+													text {
+														value ("#{value(FinalTrain[0].TrainStation[j].generalFare.weekend)}원")
+														style (Detail_L)
+													}
+												}
+												else {
+													text {
+														value ("#{value(FinalTrain[0].TrainStation[j].generalFare.weekday)}원")
+														style (Detail_L)
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				// compound-card {
+				// 	on-click {
+				// 		intent {
+				// 			goal: openStartMap
+				// 			value: $expr(FinalTrain.startmap)
+				// 		}
+				// 	}
+				// 	content {
+				// 		hbox {
+				// 			content {
+				// 				vbox {
+				// 					valign (Middle)
+				// 					halign (Center)
+				// 					content {
+				// 						single-line {
+				// 							image (/images/kakaoicon.png)
+				// 						}
+				// 					}
+				// 				}
+				// 				vbox {
+				// 					grow (4)
+				// 					valign (Middle)
+				// 					halign (Center)
+				// 					content {
+				// 						text {
+				// 							value ("출발역까지 길찾기")
+				// 							style (Title_S)
+				// 						}
+				// 					}
+				// 				}
+				// 			}
+				// 		}
+				// 	}
+				// }
+				// compound-card {
+				// 	on-click {
+				// 		intent {
+				// 			goal: openEndMap
+				// 			value: $expr(FinalTrain.endmap)
+				// 		}
+				// 	}
+				// 	content {
+				// 		hbox {
+				// 			content {
+				// 				vbox {
+				// 					valign (Middle)
+				// 					halign (Center)
+				// 					content {
+				// 						single-line {
+				// 							image (/images/kakaoicon.png)
+				// 						}
+				// 					}
+				// 				}
+				// 				vbox {
+				// 					grow (4)
+				// 					valign (Middle)
+				// 					halign (Center)
+				// 					content {
+				// 						text {
+				// 							value ("도착역에서 길찾기")
+				// 							style (Title_S)
+				// 						}
+				// 					}
+				// 				}
+				// 			}
+				// 		}
+				// 	}
+				// }
+			}
+		}
+	}
+}

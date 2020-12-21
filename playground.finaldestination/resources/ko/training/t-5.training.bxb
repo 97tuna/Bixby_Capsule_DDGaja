@@ -1,0 +1,15 @@
+train (t-52aexbi95jmuugpi139gfzgvo) {
+  utterance ("[g:NearWayInfo] (인천)[v:ArrivalCity] 어떻게 가")
+  plan (Y2BmUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5en6piUXhiZWeeWn5DNr4FAYDFSZnAJWCdCRV4jfVsagosywxxzmzpJKBiYERiBmAJCMDCDBBMAA=)
+  last-modified (1608563281866)
+}
+train (t-59soi0y5k07zfllu6lcbuohrf) {
+  utterance ("[g:CityWayInfo] (화천)[v:DepartCity]에서 (양주)[v:ArrivalCity] 어때")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEgPhgUQA=)
+  last-modified (1608563282258)
+}
+train (t-5qum1naj5dnvdbi36nh929lkm) {
+  utterance ("[g:CityWayInfo] (서울)[v:DepartCity]에서 (수원)[v:ArrivalCity] 가자미")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEgPhgUQA=)
+  last-modified (1608563282483)
+}

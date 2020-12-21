@@ -1,0 +1,3 @@
+integer (expressbuscount) {
+  description (__DESCRIPTION__)
+}

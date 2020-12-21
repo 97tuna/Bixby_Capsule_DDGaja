@@ -1,0 +1,19 @@
+action (ThirdIntercityBus) {
+	type(Search)
+	description (on-click 넘기면 받아오는 열차 세부 정보)
+	collect {
+		input (IntercityStation) {
+			type (IntercityStation)
+			min (Optional) max (Many)
+		}
+		input (startmap) {
+			type (startmap)
+			min (Optional) max (One)
+		}
+		input (endmap) {
+			type (endmap)
+			min (Optional) max (One)
+		}
+	}
+	output (FinalIntercityBus)
+}

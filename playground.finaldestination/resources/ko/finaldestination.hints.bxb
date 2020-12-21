@@ -1,0 +1,34 @@
+hints {
+  uncategorized {
+    hint ("딴 데 가자에서, 서울에서 대구 가고싶어") {
+      preferred-hint ("서울에서 대구 가고싶어")
+    }
+    hint ("딴 데 가자에서, 부산에서 청주 어떻게 가") {
+      preferred-hint ("부산에서 청주 어떻게 가")
+    }
+    hint ("딴 데 가자에서, 여기서 부산 가고 싶어") {
+      preferred-hint ("여기서 부산 가고 싶어")
+    }
+    hint ("딴 데 가자에서, 경주에서 구미 갈래") {
+      preferred-hint ("경주에서 구미 가고싶어")
+    }
+    hint ("딴 데 가자에서, 서울에서 광주 가고싶어") {
+      preferred-hint ("서울에서 광주 가고싶어")
+    }
+    hint ("딴 데 가자에서, 수원에서 부산 가고 싶어") {
+      preferred-hint ("수원에서 부산 가고싶어")
+    }
+    hint ("딴 데 가자에서, 여기서 광주 갈래") {
+      preferred-hint ("여기서 광주 가고싶어")
+    }
+    hint ("딴 데 가자에서, 여기서 대구 갈래") {
+      preferred-hint ("여기서 대구 가고싶어")
+    }
+    hint ("딴 데 가자에서, 여기서 대전 갈래") {
+      preferred-hint ("여기서 대전 가고싶어")
+    }
+    hint ("딴 데 가자에서, 여기서 양구 갈래") {
+      preferred-hint ("여기서 양구 가고싶어")
+    }
+  }
+}

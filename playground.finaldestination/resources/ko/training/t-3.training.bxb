@@ -1,0 +1,20 @@
+train (t-3ai27ar9hgdtalo3plrtfybpn) {
+  utterance ("[g:CityWayInfo] (서울)[v:DepartCity]부터 (부산)[v:ArrivalCity]까지 어캐 가누")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEgPhgUQA=)
+  last-modified (1608563282130)
+}
+train (t-3h952bf4ybekshgt1z4rjncde) {
+  utterance ("[g:CityWayInfo] (인천)[v:DepartCity]서 (청주)[v:ArrivalCity] 갈래")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEgPhgUQA=)
+  last-modified (1608563281769)
+}
+train (t-3ne3x26if5m0d9vffuho95zbi) {
+  utterance ("[g:CityWayInfo] (대구)[v:DepartCity]에서 (양산)[v:ArrivalCity] 가자")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEgPhgUQA=)
+  last-modified (1608563281951)
+}
+train (t-3yjv4emyjmqnl7jsmh4ogy7ut) {
+  utterance ("[g:SearchWay] (강릉)[v:DepartCity]에서 (고성)[v:ArrivalCity] 가는 방법")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEwEUB)
+  last-modified (1608563281997)
+}

@@ -1,0 +1,39 @@
+structure (ExpressBus) {
+  description (고속버스 정보)
+  property (ExpressStation) {
+    type (ExpressStation)
+    min (Optional) max (Many)
+  }
+  property (startmap) {
+    type (startmap)
+    min (Optional) max (One)
+  }
+  property (endmap) {
+    type (endmap)
+    min (Optional) max (One)
+  }
+  property ( startStationID) {
+    type(startStationID)
+    min (Optional) max(One)
+  }
+  property ( endStationID) {
+    type(endStationID)
+    min (Optional) max(One)
+  }
+  property (count){
+    type(count)
+    min (Optional) max (One)
+  }
+  property (pos){
+    type(pos)
+    min (Optional) max(One)
+  }
+  property (totalcount) {
+    type (totalcount)
+    min (Optional) max (Many)
+  }
+  property (expressbuscount) {
+    type (expressbuscount)
+    min (Optional) max (Many)
+  }
+}

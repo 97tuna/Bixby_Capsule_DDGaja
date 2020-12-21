@@ -1,0 +1,19 @@
+action (ThirdExpressBus) {
+	type(Search)
+	description (on-click 넘기면 받아오는 고속버스 세부 정보)
+	collect {
+		input (ExpressStation) {
+			type (ExpressStation)
+			min (Optional) max (Many)
+		}
+		input (startmap) {
+			type (startmap)
+			min (Optional) max (One)
+		}
+		input (endmap) {
+			type (endmap)
+			min (Optional) max (One)
+		}
+	}
+	output (FinalExpressBus)
+}

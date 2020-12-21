@@ -1,0 +1,4 @@
+dialog (Result) {
+  match: mapURL
+  template("카카오맵을 불러오고 있습니다.")
+}
