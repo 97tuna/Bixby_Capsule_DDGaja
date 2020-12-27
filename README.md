@@ -105,7 +105,7 @@ capsule {
 }
 ```
 
-> [viv.core 버전 업데이트 명시](https://bixbydevelopers.com/dev/docs/dev-guide/developers/library)
+> [viv.core 버전 업데이트 명시](https://bixbydevelopers.com/dev/docs/dev-guide/developers/library#library-capsule-versions)
 
 <br>
 
