@@ -1,4 +1,4 @@
-# Bixby_Capsule_DDGaja
+# Bixby Capsule 딴 데 가자
 <!-- Made By     : 2_tuna_97 -->
 
 <!-- 빅스비 크루 로고 -->
