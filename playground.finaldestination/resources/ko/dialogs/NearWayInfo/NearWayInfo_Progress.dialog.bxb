@@ -1,0 +1,12 @@
+dialog (Progress) {
+	match {
+		NearWayInfo (this) {
+			min (Required) max (One)
+		}
+	}
+	template-macro (NearWayInfo_Progress) {
+		param (NearWayInfo) {
+			expression (this)
+		}
+	}
+}

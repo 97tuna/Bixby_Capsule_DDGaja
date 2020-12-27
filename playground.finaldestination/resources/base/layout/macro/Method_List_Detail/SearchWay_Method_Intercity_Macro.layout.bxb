@@ -1,0 +1,208 @@
+layout-macro-def (CityWayInfo-IntercityDetail) {
+	params {
+		param (FinalIntercityBus) {
+			type (FinalIntercityBus)
+			min (Required) //max (One)
+		}
+	}
+	content {
+		section {
+			content {
+				
+				split-input-cell {
+					left {
+						input-cell {
+							label {
+								template ("카카오지도에서")
+							}
+							value {
+								template ("출발지까지 길찾기")
+							}
+							on-click {
+								intent {
+									goal: openStartMap
+									value: $expr(FinalIntercityBus.startmap)
+								}
+							}
+						}
+					}
+					right {
+						input-cell {
+							label {
+								template ("카카오지도에서")
+							}
+							value {
+								template ("도착지에서 길찾기")
+							}
+							on-click {
+								intent {
+									goal: openEndMap
+									value: $expr(FinalIntercityBus.endmap)
+								}
+							}
+						}
+					}
+				}
+				for-each (FinalIntercityBus[0].IntercityStation) {
+					as () {
+						index-var (j)
+						for-each (FinalIntercityBus[0].IntercityStation[j].schedule) {
+							as () {
+								index-var (i)
+								compound-card {
+									content {
+										// hbox {//기차 표시
+										// 	content {
+										// 		vbox {
+										// 			content {
+										// 				single-line {
+										// 					text {
+										// 						value ("시외버스")
+										// 					}
+										// 				}
+										// 			}
+										// 		}
+										// 		vbox {
+										// 			valign (Bottom)
+										// 			halign (Start)
+										// 			grow (5)
+										// 			content {
+										// 				text {
+										// 					value ("배차시간 #{value(FinalIntercityBus[0].IntercityStation[j].interval)} (일/간격)")
+										// 					style (Detail_L_Soft)
+										// 				}
+										// 			}
+										// 		}
+										// 	}
+										// }
+										// hbox {//어떤 기차인지 표시
+										// 	content {
+										// 		vbox {
+										// 			content {
+										// 				text {
+										// 					value ("배차시간 #{value(FinalIntercityBus[0].IntercityStation[j].interval)} (일/간격)")
+										// 					style (Detail_L_Soft)
+										// 				}
+										// 			}
+										// 		}
+										// 	}
+										// }
+										hbox {//출발시간이랑 도착시간 표시
+											content {
+												vbox {
+													halign (Center)
+													valign (Bottom)
+													grow(2)
+													content {
+														text {
+															value ("#{value(FinalIntercityBus[0].IntercityStation[j].startTerminal)}")
+															style (Detail_M)
+														}
+													}
+												}
+												vbox {
+													grow(5)
+													halign (Center)
+													valign (Bottom)
+													content {
+														single-line {
+															image (/images/Bus.png) { style (Detail_L)}
+														}
+													}
+												}
+												vbox {
+													grow(2)
+													halign (Center)
+													valign (Bottom)
+													content {
+														text ("#{value(FinalIntercityBus[0].IntercityStation[j].destTerminal)}") {
+															style (Detail_M)
+														}
+													}
+												}
+											}
+										}
+										hbox {//출발시간이랑 도착시간 표시
+											content {
+												vbox {
+													grow(2)
+													halign (Center)
+													valign (Top)
+													content {
+														text {
+															value ("#{value(FinalIntercityBus[0].IntercityStation[j].schedule[i].time)}")//출발시간 넣기
+															style (Title_S)
+														}
+													}
+												}
+												vbox {
+													grow(5)
+													halign (Center)
+													valign (Top)
+													content {
+														text {
+															value ("편도 #{value(FinalIntercityBus[0].IntercityStation[j].wasteTime)} 소요")
+															style (Detail_L_Soft)
+															
+														}
+													}
+												}
+												vbox {
+													grow(2)
+													halign (Center)
+													valign (Top)
+													content {
+														text {
+															value ("도착") //도착시간 넣기
+															style (Title_S)
+														}
+													}
+												}
+											}
+										}
+										divider
+										hbox {//성인인지랑 요금 표시
+											content {
+												vbox {
+													grow(4)
+													halign (Start)
+													content {
+														text {
+															value ("성인")
+															style (Detail_L)
+														}
+													}
+												}
+												vbox {
+													grow(2)
+													halign (End)
+													valign (Bottom)
+													content {
+														text {
+															value ("총요금")
+															style (Detail_M_Soft)
+														}
+													}
+												}
+												vbox {
+													//grow(2)
+													halign (End)
+													content {
+														text {
+															value ("#{value(FinalIntercityBus[0].IntercityStation[j].normalFare)}원")
+															style (Detail_L)
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

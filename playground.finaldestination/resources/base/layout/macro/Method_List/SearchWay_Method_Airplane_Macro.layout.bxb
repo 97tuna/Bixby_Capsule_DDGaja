@@ -1,0 +1,138 @@
+layout-macro-def (CityWayInfo-Airplane) {
+	params {
+		param (Airplane) {
+			type (Airplane)
+			min (Required) //max (One)
+		}
+	}
+	content {
+		section {
+			content {
+				for-each (Airplane) {
+					as () {
+						index-var (j)
+						compound-card {
+							on-click {
+								intent {
+									goal: ThirdAirplane
+									value: $expr(Airplane[j])
+								}
+							}
+							content {
+								hbox {
+									content {
+										vbox {
+											halign (Center)
+											valign (Bottom)
+											grow(2)
+											content {
+												text {
+													value ("#{value(Airplane[j].startStationName)}")
+													style (Detail_M)
+												}
+											}
+										}
+										vbox {
+											grow(5)
+											halign (Center)
+											valign (Bottom)
+											content {
+												single-line {
+													image (/images/Airplane.png) {style (Detail_L)}
+												}
+											}
+										}
+										vbox {
+											grow(2)
+											halign (Center)
+											valign (Bottom)
+											content {
+												text ("#{value(Airplane[j].endStationName)}") {
+													style (Detail_M)
+												}
+											}
+										}
+									}
+								}
+							if (exists(Airplane[j].startStationName)) {
+								hbox {//출발시간이랑 도착시간 표시
+									content {
+										vbox {
+											halign (Center)
+											valign (Top)
+											grow(1)
+											content {
+												text {
+													value ("출발공항")
+													style (Detail_L)
+												}
+											}
+										}
+										vbox {
+											grow(3)
+											halign (Center)
+											valign (Top)
+											content {
+												text ("편도") {
+													style (Detail_M_Soft)
+												}
+											}
+										}
+										vbox {
+											grow(1)
+											halign (Center)
+											valign (Top)
+											content {
+												text ("도착공항") {
+													style (Detail_L)
+												}
+											}
+										}
+									}
+								}
+							}
+								else-if (empty(Airplane[j].startStationName)) {
+									hbox {//출발시간이랑 도착시간 표시
+										content {
+											vbox {
+												halign (Center)
+												valign (Top)
+												grow(1)
+												content {
+													text {
+														value ("출발공항")
+														style (Detail_L)
+													}
+												}
+											}
+											vbox {
+												grow(3)
+												halign (Center)
+												valign (Top)
+												content {
+													text ("현재 운행하는 항공편이 없습니다") {
+														style (Detail_M_Soft)
+													}
+												}
+											}
+											vbox {
+												grow(1)
+												halign (Center)
+												valign (Top)
+												content {
+													text ("도착공항") {
+														style (Detail_L)
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

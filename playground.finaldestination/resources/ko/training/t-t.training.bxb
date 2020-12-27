@@ -1,0 +1,30 @@
+train (t-t0ccr5wu1kchg57cpfokodhqc) {
+  utterance ("[g:NearWayInfo] 여기서 (부산)[v:ArrivalCity] 갈래")
+  plan (Y2BmUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5en6piUXhiZWeeWn5DNr4FAYDFSZnAJWCdCRV4jfVsagosywxxzmzpJKBiYERiBmAJCMDCDBBMAA=)
+  last-modified (1608563286132)
+}
+train (t-t6xff8j1tma7oksjt5jxkx522) {
+  utterance ("[g:NearWayInfo] (창원)[v:ArrivalCity] 어캐 카노")
+  plan (Y2BmUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5en6piUXhiZWeeWn5DNr4FAYDFSZnAJWCdCRV4jfVsagosywxxzmzpJKBiYERiBmAJCMDCDBBMAA=)
+  last-modified (1608563286042)
+}
+train (t-tixzb1d098o2n9j6cuhcgusjs) {
+  utterance ("[g:CityWayInfo] (서울)[v:DepartCity]부터 (부산)[v:ArrivalCity]까지 알려줄래")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEgPhgUQA=)
+  last-modified (1608563286330)
+}
+train (t-tl0vqdl9zc9pmcjuuc61b14ey) {
+  utterance ("[g:CityWayInfo] (양구)[v:DepartCity]에서 (경기도 광주)[v:ArrivalCity]")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEgPhgUQA=)
+  last-modified (1608563286478)
+}
+train (t-tqne0341vsmgir2ihcrvvbjf7) {
+  utterance ("[g:NearWayInfo] (원주)[v:ArrivalCity] 가는 법 찾아줘")
+  plan (Y2BmUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5en6piUXhiZWeeWn5DNr4FAYDFSZnAJWCdCRV4jfVsagosywxxzmzpJKBiYERiBmAJCMDCDBBMAA=)
+  last-modified (1608563286537)
+}
+train (t-ts8nmbkgy2a0yx9440em13d5t) {
+  utterance ("[g:NearWayInfo] (원주)[v:ArrivalCity] 가고싶어")
+  plan (Y2BmUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5en6piUXhiZWeeWn5DNr4FAYDFSZnAJWCdCRV4jfVsagosywxxzmzpJKBiYERiBmAJCMDCDBBMAA=)
+  last-modified (1608563286593)
+}

@@ -1,0 +1,27 @@
+structure (FinalIntercityBus) {
+  description (세번째 단계 Result)
+  property (IntercityStation) {
+    type (IntercityStation)
+    min (Optional) max (Many)
+  }
+  property (startmap) {
+    type (startmap)
+    min (Optional) max (One)
+  }
+  property (endmap) {
+    type (endmap)
+    min (Optional) max (One)
+  }
+  property ( startStationID) {
+    type(startStationID)
+    min (Optional) max(One)
+  }
+  property ( endStationID) {
+    type(endStationID)
+    min (Optional) max(One)
+  }
+  property (totalcount) {
+    type (totalcount)
+    min (Optional) max (Many)
+  }
+}

@@ -1,0 +1,4 @@
+dialog (Progress) {
+  match: FinalExpressBus (this)
+  template("오늘의 고속 버스 시간표를 탐색중입니다.")
+}

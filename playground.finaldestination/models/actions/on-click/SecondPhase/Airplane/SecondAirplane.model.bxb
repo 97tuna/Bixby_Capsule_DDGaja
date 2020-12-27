@@ -1,0 +1,11 @@
+action (SecondAirplane) {
+  type(Search)
+  description (on-click 넘기면 받아오는 항공 세부 정보)
+  collect {
+    input (Airplane) {
+      type (Airplane)
+      min (Optional) max (Many)
+    }
+  }
+  output (Airplane)
+}

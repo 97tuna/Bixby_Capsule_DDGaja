@@ -1,0 +1,52 @@
+endpoints {
+	action-endpoints {
+		action-endpoint (SearchWay) {
+			accepted-inputs (DepartCity,ArrivalCity,location)
+			local-endpoint ("main/SearchWay/SearchWay.js")
+		}
+		action-endpoint (SecondTrain) {
+			accepted-inputs (Train)
+			local-endpoint ("on-click/SecondPhase/Train/SecondTrain.js")
+		}
+		action-endpoint (SecondIntercityBus) {
+			accepted-inputs (IntercityBus)
+			local-endpoint ("on-click/SecondPhase/IntercityBus/SecondIntercityBus.js")
+		}
+		action-endpoint (SecondExpressBus) {
+			accepted-inputs (ExpressBus)
+			local-endpoint ("on-click/SecondPhase/ExpressBus/SecondExpressBus.js")
+		}
+		action-endpoint (SecondAirplane) {
+			accepted-inputs (Airplane)
+			local-endpoint ("on-click/SecondPhase/Airplane/SecondAirplane.js")
+		}
+		action-endpoint (ThirdTrain) {
+			accepted-inputs (startStationName,endStationName,startmap,endmap,TrainStation)
+			local-endpoint ("on-click/ThirdPhase/Train/ThirdTrain.js")
+		}
+		action-endpoint (ThirdIntercityBus) {
+			accepted-inputs (IntercityStation,startmap,endmap)
+			local-endpoint ("on-click/ThirdPhase/IntercityBus/ThirdIntercityBus.js")
+		}
+		action-endpoint (ThirdExpressBus) {
+			accepted-inputs (ExpressStation,startmap,endmap)
+			local-endpoint ("on-click/ThirdPhase/ExpressBus/ThirdExpressBus.js")
+		}
+		action-endpoint (ThirdAirplane) {
+			accepted-inputs (startStationName,endStationName,startmap,endmap,AirplaneStation)
+			local-endpoint ("on-click/ThirdPhase/Airplane/ThirdAirplane.js")
+		}
+		action-endpoint (SearchWayNearby) {
+			accepted-inputs (location,ArrivalCity)
+			local-endpoint ("main/SearchWayNearby/SearchWayNearby.js")
+		}
+		action-endpoint (openEndMap) {
+			accepted-inputs (endmap)
+			local-endpoint ("openmap/openEndMap.js")
+		}
+		action-endpoint (openStartMap) {
+			accepted-inputs (startmap)
+			local-endpoint ("openmap/openStartMap.js")
+		}
+	}
+}

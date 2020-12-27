@@ -1,0 +1,23 @@
+result-view {
+	match {
+		FinalAirplane (result) {
+			min (Required) max (One)
+		}
+	}
+	
+	message {
+		if (exists(result.AirplaneStation)) {
+			template ("#{value(result.startStationName)}에서 #{value(result.endStationName)}까지 일정표를 찾았습니다.")		}
+		else-if (empty(result.AirplaneStation)) {
+			template ("현재 시간 이후에 운행하는 버스가 없습니다")
+		}
+	}
+	
+	render {
+		layout-macro (CityWayInfo-AirplaneDetail) {
+			param (FinalAirplane) {
+				expression(result)
+			}
+		}
+	}
+}

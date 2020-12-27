@@ -1,0 +1,12 @@
+dialog (Progress) {
+	match {
+		CityWayInfo (this) {
+			min (Required) max (One)
+		}
+	}
+	template-macro (CityWayInfo_Progress) {
+		param (CityWayInfo) {
+			expression (this)
+		}
+	}
+}

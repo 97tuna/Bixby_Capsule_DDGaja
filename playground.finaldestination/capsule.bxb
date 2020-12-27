@@ -1,0 +1,35 @@
+capsule {
+	id (playground.finaldestination)
+	version (0.6.0)
+	format (3)
+	targets {
+		target (bixby-mobile-ko-KR)
+		target (bixby-mobile-en-US) {enabled (false)}
+	}
+
+	runtime-version (8) {
+	}
+
+	capsule-imports {
+		import (viv.core){ as (core)}
+		import (viv.geo) { as (geo) version (9.27.9)}
+	}
+
+  store-sections {
+    section (TravelAndTransportation)
+    section (Local) {
+      visibility-constraints {
+        country-constraints {
+          allowed-list {
+            allow (KR)
+          }
+        }
+      }
+    }
+  }
+	store-countries {
+		only {
+			allow (KR)
+		}
+	}
+}

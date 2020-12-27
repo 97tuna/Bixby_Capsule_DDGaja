@@ -1,0 +1,22 @@
+result-view {
+	match {
+		IntercityBus (result) {
+			min (Required) max (One)
+		}
+	}
+	message {
+	//	template ("시외버스를 이용하여 가는 방법입니다")
+		template-macro (CityWayInfo_intercitybuscount) {
+			param (IntercityBus) {
+				expression(result)
+			}
+		}	
+	}
+	render {
+		layout-macro (CityWayInfo-Intercity) {
+			param (IntercityBus) {
+				expression(result)
+			}
+		}
+	}
+}

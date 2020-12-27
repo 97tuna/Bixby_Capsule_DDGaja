@@ -1,0 +1,5 @@
+train (t-uylmpghbgvj9hxbisxuzdbph1) {
+  utterance ("[g:CityWayInfo] (수원)[v:DepartCity]에서 (서울)[v:ArrivalCity] 가")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEgPhgUQA=)
+  last-modified (1608563286686)
+}

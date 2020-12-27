@@ -1,0 +1,27 @@
+action (SearchWay) {
+	description (도시에서 도시로 갈 수 있는 모든 방법을 Search 한다.)
+	type(Search)
+	collect {
+		input (DepartCity) {
+			type (DepartCity)
+			min (Optional) max (One)
+		}
+		input (ArrivalCity) {
+			type (ArrivalCity)
+			min (Optional) max (One)
+		}
+		input (location) {
+			min (Optional) max (One)
+			type (location)
+			default-init{
+				if ($user.currentLocation.$exists){
+					intent {
+						goal: geo.GeoPoint
+						value-set: geo.CurrentLocation { $expr($user.currentLocation) }
+					}
+				}
+			}
+		}
+	}
+	output (CityWayInfo)
+}

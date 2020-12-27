@@ -1,0 +1,3 @@
+text (destTerminal) {
+  description (시외버스 도착 터미널명)
+}

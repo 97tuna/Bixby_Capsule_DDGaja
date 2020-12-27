@@ -1,0 +1,15 @@
+train (t-m0l58dxhgy681cyjsy5cfcbsp) {
+  utterance ("[g:SearchWay] (무안)[v:DepartCity]에서 (경산남도 고성)[v:ArrivalCity] 가는 법")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEwEUB)
+  last-modified (1608563284394)
+}
+train (t-m3ux8qyggz3832wwhdp41fwqj) {
+  utterance ("[g:CityWayInfo] (서울)[v:DepartCity]에서 (세종특별자치시)[v:ArrivalCity] 가고싶어")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEgPhgUQA=)
+  last-modified (1608563284263)
+}
+train (t-mt73wjahsm8sdrvf0xbzyai7f) {
+  utterance ("[g:CityWayInfo] (서울)[v:DepartCity]부터 (부산)[v:ArrivalCity]까지 알려줘")
+  plan (Y2BhUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5es6ZJZXhiZWeeWn5DKr4FAanJhYlZwCV4jfPsagosywxB2Qsgxo+hS6pBYlFJWB1zAyMDExAkgFIgyAEgPhgUQA=)
+  last-modified (1608563284823)
+}

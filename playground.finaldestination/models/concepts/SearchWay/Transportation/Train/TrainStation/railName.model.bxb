@@ -1,0 +1,3 @@
+text (railName) {
+  description (열차 노선 이름)
+}

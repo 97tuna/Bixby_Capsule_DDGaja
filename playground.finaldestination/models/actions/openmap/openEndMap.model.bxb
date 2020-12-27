@@ -1,0 +1,11 @@
+action (openEndMap) {
+  description (EndMap app-launch를 위한 액션)
+  type(Constructor)
+  collect {
+    input (endmap) {
+      type (endmap)
+      min (Optional) max (One)
+    }
+  }
+  output (mapURL)
+}

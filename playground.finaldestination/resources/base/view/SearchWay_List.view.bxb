@@ -1,0 +1,37 @@
+result-view {
+	match {
+		CityWayInfo (result) {
+			min (Required) max (One)
+		}
+	}
+	message {
+		if (result.traincount >= 1 || result.expressbuscount >= 1 || result.airplanecount >= 1 || result.intercitybuscount >= 1) {
+			template-macro (CityWayInfo_Result) {
+				param (CityWayInfo) {
+					expression (result)
+				}
+			}
+		}
+		else-if (result.traincount == 0 && result.expressbuscount == 0 && result.airplanecount == 0 && result.intercitybuscount == 0) {
+			template-macro (CityWayInfo_NoResult) {
+				param (CityWayInfo) {
+					expression (result)
+				}
+			}
+		}
+		else {
+			template-macro (CityWayInfo_NoResult) {
+				param (CityWayInfo) {
+					expression (result)
+				}
+			}
+		}
+	}
+	render {
+		layout-macro (CityWayInfo-summary) {
+			param (CityWayInfo) {
+				expression(result)
+			}
+		}
+	}
+}

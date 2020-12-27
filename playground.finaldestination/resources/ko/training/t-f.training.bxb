@@ -1,0 +1,5 @@
+train (t-fil500bnj3wonxsom5i8rujkl) {
+  utterance ("[g:NearWayInfo] (원주)[v:ArrivalCity] 가는 법 뭐야")
+  plan (Y2BmUC/ISaxML8ovzUvRS8vMS8xJSS0uAdIlmfl5en6piUXhiZWeeWn5DNr4FAYDFSZnAJWCdCRV4jfVsagosywxxzmzpJKBiYERiBmAJCMDCDBBMAA=)
+  last-modified (1608563283534)
+}
